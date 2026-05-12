@@ -3,83 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio - Lumina</title>
+  <title>Lumina - App de estudos</title>
+  <meta name="description" content="Lumina e um app de estudos com Pomodoro, materias, aulas, questoes, revisao e dashboard.">
   <meta name="theme-color" content="#7c3aed">
   <style>
-    :root {
-      color-scheme: dark;
-      --bg: #080711;
-      --surface: #12101f;
-      --surface-strong: #1b1830;
-      --text: #f5f3ff;
-      --muted: #b8b3cf;
-      --faint: #8d86a7;
-      --primary: #a78bfa;
-      --border: rgba(255,255,255,.12);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124, 58, 237, .28), transparent 34rem),
-        radial-gradient(circle at bottom right, rgba(167, 139, 250, .16), transparent 28rem),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 18px 56px; }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .logo {
-      width: 42px; height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(167,139,250,.32), rgba(124,58,237,.18));
-      border: 1px solid rgba(167,139,250,.42);
-      box-shadow: 0 0 32px rgba(124,58,237,.22);
-      font-weight: 900;
-    }
-    nav { display: flex; gap: 14px; flex-wrap: wrap; }
-    nav a { color: var(--muted); font-weight: 700; font-size: 14px; }
-    .hero, main {
-      background: linear-gradient(180deg, rgba(27,24,48,.84), rgba(18,16,31,.78));
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: clamp(22px, 4vw, 38px);
-      box-shadow: 0 22px 70px rgba(0,0,0,.28);
-    }
-    h1 { margin: 0 0 12px; font-size: clamp(34px, 6vw, 56px); line-height: 1; letter-spacing: -.04em; }
-    h2 { margin-top: 32px; font-size: 22px; line-height: 1.2; }
-    p, li { color: var(--muted); }
-    .lead { font-size: 18px; max-width: 720px; }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(167,139,250,.14);
-      border: 1px solid rgba(167,139,250,.28);
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
-    .card { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.04); border: 1px solid var(--border); }
-    .card strong { color: var(--text); display: block; margin-bottom: 6px; }
-    footer { margin-top: 28px; color: var(--faint); font-size: 13px; text-align: center; }
-    @media (max-width: 640px) { header { align-items: flex-start; flex-direction: column; } }
+    :root { color-scheme: dark; --bg:#080711; --surface:#12101f; --surface-strong:#1b1830; --text:#f5f3ff; --muted:#b8b3cf; --faint:#8d86a7; --primary:#a78bfa; --primary-strong:#7c3aed; --green:#34d399; --amber:#fbbf24; --border:rgba(255,255,255,.12); }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:radial-gradient(circle at top left, rgba(124,58,237,.32), transparent 34rem), radial-gradient(circle at bottom right, rgba(167,139,250,.16), transparent 28rem), var(--bg); color:var(--text); line-height:1.65; }
+    a { color:var(--primary); text-decoration:none; } a:hover { text-decoration:underline; }
+    .wrap { max-width:1080px; margin:0 auto; padding:28px 18px 56px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:24px; }
+    .brand { display:flex; align-items:center; gap:12px; color:var(--text); }
+    .logo { width:42px; height:42px; border-radius:14px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(167,139,250,.34), rgba(124,58,237,.18)); border:1px solid rgba(167,139,250,.42); box-shadow:0 0 32px rgba(124,58,237,.22); font-weight:900; }
+    nav { display:flex; gap:14px; flex-wrap:wrap; align-items:center; } nav a { color:var(--muted); font-weight:800; font-size:14px; }
+    .nav-cta { color:white; padding:8px 12px; border-radius:999px; background:linear-gradient(135deg, var(--primary), var(--primary-strong)); box-shadow:0 12px 34px rgba(124,58,237,.22); }
+    .hero { background:linear-gradient(180deg, rgba(27,24,48,.88), rgba(18,16,31,.78)); border:1px solid var(--border); border-radius:28px; padding:clamp(24px,4vw,44px); box-shadow:0 22px 70px rgba(0,0,0,.28); }
+    .hero-grid { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr); gap:20px; align-items:stretch; }
+    h1 { margin:0 0 12px; font-size:clamp(34px,6vw,62px); line-height:.98; letter-spacing:-.045em; }
+    p, li { color:var(--muted); } .lead { font-size:18px; max-width:760px; }
+    .pill { display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; background:rgba(167,139,250,.14); border:1px solid rgba(167,139,250,.28); color:var(--primary); font-size:13px; font-weight:900; margin-bottom:18px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:12px 16px; border-radius:14px; font-weight:900; border:1px solid rgba(255,255,255,.12); }
+    .button.primary { color:white; background:linear-gradient(135deg, var(--primary), var(--primary-strong)); box-shadow:0 18px 46px rgba(124,58,237,.28); }
+    .button.secondary { color:var(--text); background:rgba(255,255,255,.055); }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-top:24px; }
+    .card { padding:18px; border-radius:18px; background:rgba(255,255,255,.045); border:1px solid var(--border); } .card strong { color:var(--text); display:block; margin-bottom:6px; }
+    .mock { border-radius:28px; border:1px solid rgba(167,139,250,.28); background:radial-gradient(circle at top, rgba(167,139,250,.18), transparent 18rem), rgba(8,7,17,.62); padding:18px; display:grid; gap:12px; align-content:center; }
+    .mock-card { border-radius:18px; padding:16px; background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.10); }
+    .status { color:var(--green); font-weight:900; } .warning { color:var(--amber); font-weight:900; }
+    footer { margin-top:28px; color:var(--faint); font-size:13px; text-align:center; }
+    @media (max-width:800px) { .hero-grid { grid-template-columns:1fr; } }
+    @media (max-width:640px) { header { align-items:flex-start; flex-direction:column; } nav { gap:10px; } .actions { flex-direction:column; } .button { width:100%; } }
   </style>
 </head>
 <body>
@@ -87,31 +41,42 @@
     <header>
       <a class="brand" href="./">
         <span class="logo">L</span>
-        <span>
-          <strong style="display:block;color:var(--text)">Lumina</strong>
-          <span style="color:var(--muted);font-size:13px">App de estudos</span>
-        </span>
+        <span><strong style="display:block;color:var(--text)">Lumina</strong><span style="color:var(--muted);font-size:13px">App de estudos</span></span>
       </a>
       <nav>
         <a href="./">Inicio</a>
+        <a class="nav-cta" href="./testar/">Quero testar</a>
         <a href="./privacidade/">Privacidade</a>
         <a href="./termos/">Termos</a>
         <a href="mailto:luminaestudos.app@gmail.com">Suporte</a>
       </nav>
     </header>
+
     <section class="hero">
-      <span class="pill">Release Candidate</span>
-      <h1>Estude com mais foco, clareza e evolucao.</h1>
-      <p class="lead">Lumina e um app de estudos com materias, aulas, questoes, revisoes, Pomodoro, dashboard e uma experiencia escura pensada para longos periodos de estudo.</p>
+      <div class="hero-grid">
+        <div>
+          <span class="pill">Teste fechado gratuito</span>
+          <h1>Estude com mais foco, clareza e ritmo.</h1>
+          <p class="lead">Lumina e um app de estudos com materias, aulas, questoes, revisoes, Pomodoro, dashboard e uma experiencia escura pensada para longos periodos de estudo.</p>
+          <div class="actions">
+            <a class="button primary" href="./testar/">Quero testar o Lumina</a>
+            <a class="button secondary" href="mailto:luminaestudos.app@gmail.com?subject=Quero%20testar%20o%20Lumina&body=Ola!%20Quero%20testar%20o%20Lumina.%0A%0AMeu%20email%20para%20convite%20Firebase%20e:%0A%0AMeu%20celular%20e:%20Android">Pedir convite por email</a>
+          </div>
+        </div>
+        <aside class="mock" aria-label="Resumo visual do Lumina">
+          <div class="mock-card"><strong>Dashboard de estudos</strong><p>Veja progresso, foco e desempenho em uma interface limpa.</p></div>
+          <div class="mock-card"><strong>Pomodoro integrado</strong><p>Inicie, pause e mantenha seu ritmo de estudo.</p></div>
+          <div class="mock-card"><strong class="status">Premium sem cobranca real</strong><p>Nesta fase, a tela Premium serve apenas para validar interesse.</p></div>
+        </aside>
+      </div>
       <div class="cards">
         <div class="card"><strong>Organizacao</strong><p>Estruture materias, aulas e questoes em um fluxo simples.</p></div>
-        <div class="card"><strong>Foco</strong><p>Use Pomodoro e sessoes de estudo para manter ritmo.</p></div>
-        <div class="card"><strong>Premium futuro</strong><p>Base preparada para recursos avancados, sem cobranca real nesta versao.</p></div>
+        <div class="card"><strong>Foco</strong><p>Use Pomodoro e sessoes de estudo para manter constancia.</p></div>
+        <div class="card"><strong>Evolucao</strong><p>Acompanhe dashboard, revisoes e desempenho ao longo do tempo.</p></div>
       </div>
     </section>
-    <footer>
-      Lumina Estudos - luminaestudos.app@gmail.com
-    </footer>
+
+    <footer>Lumina Estudos - luminaestudos.app@gmail.com</footer>
   </div>
 </body>
 </html>
