@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Politica de Privacidade - Lumina</title>
+  <meta name="theme-color" content="#7c3aed">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080711;
+      --surface: #12101f;
+      --surface-strong: #1b1830;
+      --text: #f5f3ff;
+      --muted: #b8b3cf;
+      --faint: #8d86a7;
+      --primary: #a78bfa;
+      --border: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, .28), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(167, 139, 250, .16), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 18px 56px; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo {
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(167,139,250,.32), rgba(124,58,237,.18));
+      border: 1px solid rgba(167,139,250,.42);
+      box-shadow: 0 0 32px rgba(124,58,237,.22);
+      font-weight: 900;
+    }
+    nav { display: flex; gap: 14px; flex-wrap: wrap; }
+    nav a { color: var(--muted); font-weight: 700; font-size: 14px; }
+    .hero, main {
+      background: linear-gradient(180deg, rgba(27,24,48,.84), rgba(18,16,31,.78));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: clamp(22px, 4vw, 38px);
+      box-shadow: 0 22px 70px rgba(0,0,0,.28);
+    }
+    h1 { margin: 0 0 12px; font-size: clamp(34px, 6vw, 56px); line-height: 1; letter-spacing: -.04em; }
+    h2 { margin-top: 32px; font-size: 22px; line-height: 1.2; }
+    p, li { color: var(--muted); }
+    .lead { font-size: 18px; max-width: 720px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(167,139,250,.14);
+      border: 1px solid rgba(167,139,250,.28);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
+    .card { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.04); border: 1px solid var(--border); }
+    .card strong { color: var(--text); display: block; margin-bottom: 6px; }
+    footer { margin-top: 28px; color: var(--faint); font-size: 13px; text-align: center; }
+    @media (max-width: 640px) { header { align-items: flex-start; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="../">
+        <span class="logo">L</span>
+        <span>
+          <strong style="display:block;color:var(--text)">Lumina</strong>
+          <span style="color:var(--muted);font-size:13px">App de estudos</span>
+        </span>
+      </a>
+      <nav>
+        <a href="../">Inicio</a>
+        <a href="../privacidade/">Privacidade</a>
+        <a href="../termos/">Termos</a>
+        <a href="mailto:luminaestudos.app@gmail.com">Suporte</a>
+      </nav>
+    </header>
+    <main>
+      <span class="pill">Legal</span>
+      <h1>Politica de Privacidade</h1>
+      <p>Ultima atualizacao: 12/05/2026</p>
+      <h2>1. Quem somos</h2>
+      <p>O Lumina e um aplicativo de estudos criado para ajudar estudantes a organizar materias, aulas, questoes, revisoes, sessoes de foco, Pomodoro e progresso de estudo.</p>
+      <h2>2. Informacoes tratadas</h2>
+      <p>Dependendo do uso, o Lumina pode tratar dados de conta, dados de estudo criados pelo usuario, configuracoes locais, registros tecnicos e eventos de uso para melhoria do aplicativo.</p>
+      <h2>3. Finalidades</h2>
+      <p>As informacoes podem ser usadas para funcionamento do app, organizacao dos estudos, melhoria de estabilidade, suporte, seguranca e preparacao de recursos de backup, sincronizacao e Premium.</p>
+      <h2>4. Armazenamento local e nuvem</h2>
+      <p>O Lumina prioriza o uso local dos dados no dispositivo. Alguns recursos podem usar servicos de nuvem, como autenticacao, backup ou sincronizacao, quando estiverem habilitados.</p>
+      <h2>5. Pagamentos</h2>
+      <p>Na versao candidata atual, o checkout real esta desativado. A tela Premium pode registrar interesse e apresentar planos previstos, mas nenhuma cobranca real e processada nesta versao.</p>
+      <h2>6. Compartilhamento</h2>
+      <p>O Lumina nao vende dados pessoais. Informacoes podem ser compartilhadas apenas quando necessario para funcionamento tecnico, infraestrutura, suporte, seguranca ou obrigacao legal.</p>
+      <h2>7. Direitos do usuario</h2>
+      <p>Solicitacoes sobre dados podem ser enviadas para luminaestudos.app@gmail.com.</p>
+      <h2>8. Contato</h2>
+      <p>Email: <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a></p>
+    </main>
+    <footer>
+      Lumina Estudos - luminaestudos.app@gmail.com
+    </footer>
+  </div>
+</body>
+</html>
