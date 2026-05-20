@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,9 +16,13 @@
       --muted: #b8b3cf;
       --faint: #8d86a7;
       --primary: #a78bfa;
-      --border: rgba(255,255,255,.12);
+      --border: rgba(255, 255, 255, .12);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -28,9 +33,22 @@
       color: var(--text);
       line-height: 1.65;
     }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 18px 56px; }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+
     header {
       display: flex;
       align-items: center;
@@ -38,52 +56,128 @@
       gap: 18px;
       margin-bottom: 24px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .logo {
-      width: 42px; height: 42px;
+      width: 42px;
+      height: 42px;
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(167,139,250,.32), rgba(124,58,237,.18));
-      border: 1px solid rgba(167,139,250,.42);
-      box-shadow: 0 0 32px rgba(124,58,237,.22);
+      background: linear-gradient(135deg, rgba(167, 139, 250, .32), rgba(124, 58, 237, .18));
+      border: 1px solid rgba(167, 139, 250, .42);
+      box-shadow: 0 0 32px rgba(124, 58, 237, .22);
       font-weight: 900;
     }
-    nav { display: flex; gap: 14px; flex-wrap: wrap; }
-    nav a { color: var(--muted); font-weight: 700; font-size: 14px; }
-    .hero, main {
-      background: linear-gradient(180deg, rgba(27,24,48,.84), rgba(18,16,31,.78));
+
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero,
+    main {
+      background: linear-gradient(180deg, rgba(27, 24, 48, .84), rgba(18, 16, 31, .78));
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: clamp(22px, 4vw, 38px);
-      box-shadow: 0 22px 70px rgba(0,0,0,.28);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, .28);
     }
-    h1 { margin: 0 0 12px; font-size: clamp(34px, 6vw, 56px); line-height: 1; letter-spacing: -.04em; }
-    h2 { margin-top: 32px; font-size: 22px; line-height: 1.2; color: var(--primary); }
-    p, li { color: var(--muted); }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 8px; }
-    .lead { font-size: 18px; max-width: 720px; }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    h2 {
+      margin-top: 32px;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--primary);
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .lead {
+      font-size: 18px;
+      max-width: 720px;
+    }
+
     .pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(167,139,250,.14);
-      border: 1px solid rgba(167,139,250,.28);
+      background: rgba(167, 139, 250, .14);
+      border: 1px solid rgba(167, 139, 250, .28);
       color: var(--primary);
       font-size: 13px;
       font-weight: 900;
       margin-bottom: 18px;
     }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
-    .card { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.04); border: 1px solid var(--border); }
-    .card strong { color: var(--text); display: block; margin-bottom: 6px; }
-    footer { margin-top: 28px; color: var(--faint); font-size: 13px; text-align: center; }
-    @media (max-width: 640px) { header { align-items: flex-start; flex-direction: column; } }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+    }
+
+    .card strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--faint);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
@@ -105,93 +199,159 @@
       <span class="pill">Conformidade LGPD</span>
       <h1>Política de Privacidade</h1>
       <p>Última atualização: 20 de maio de 2026</p>
-      
-      <p class="lead">Esta Política de Privacidade descreve de forma clara e transparente como o aplicativo <strong>Lumina</strong> coleta, armazena, processa, protege e exclui os seus dados pessoais, em estrita conformidade com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018)</strong>.</p>
+
+      <p class="lead">Esta Política de Privacidade descreve de forma clara e transparente como o aplicativo
+        <strong>Lumina</strong> coleta, armazena, processa, protege e exclui os seus dados pessoais, em estrita
+        conformidade com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018)</strong>.
+      </p>
 
       <h2>1. Definições Importantes</h2>
-      <p>Para facilitar a sua compreensão deste documento, adotamos os seguintes conceitos legais definidos pela LGPD:</p>
+      <p>Para facilitar a sua compreensão deste documento, adotamos os seguintes conceitos legais definidos pela LGPD:
+      </p>
       <ul>
-        <li><strong>Titular dos Dados:</strong> Você, pessoa física que utiliza o aplicativo Lumina para fins de estudo e organização.</li>
-        <li><strong>Controlador de Dados:</strong> Pessoa física ou jurídica a quem competem as decisões referentes ao tratamento de dados pessoais. Para fins desta política, o controlador é <strong>Felipe Martins Araruna (Pessoa Física / 043.791.841-61)</strong>, com domicílio em Brasília, DF, Brasil.</li>
-        <li><strong>Encarregado (DPO):</strong> Pessoa indicada pelo controlador para atuar como canal de comunicação entre o controlador, os titulares dos dados e a Autoridade Nacional de Proteção de Dados (ANPD). O encarregado do Lumina é <strong>Felipe Martins Araruna</strong>, disponível através do e-mail <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a>.</li>
-        <li><strong>Tratamento:</strong> Toda operação realizada com dados pessoais, como coleta, armazenamento, processamento, utilização, acesso, eliminação e alteração.</li>
+        <li><strong>Titular dos Dados:</strong> Você, pessoa física que utiliza o aplicativo Lumina para fins de estudo
+          e organização.</li>
+        <li><strong>Controlador de Dados:</strong> Pessoa física ou jurídica a quem competem as decisões referentes ao
+          tratamento de dados pessoais. Para fins desta política, o controlador é <strong>Felipe Martins Araruna (Pessoa
+            Física)</strong>, com domicílio em Brasília, DF, Brasil.</li>
+        <li><strong>Encarregado (DPO):</strong> Pessoa indicada pelo controlador para atuar como canal de comunicação
+          entre o controlador, os titulares dos dados e a Autoridade Nacional de Proteção de Dados (ANPD). O encarregado
+          do Lumina é <strong>Felipe Martins Araruna</strong>, disponível através do e-mail <a
+            href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a>.</li>
+        <li><strong>Tratamento:</strong> Toda operação realizada com dados pessoais, como coleta, armazenamento,
+          processamento, utilização, acesso, eliminação e alteração.</li>
       </ul>
 
       <h2>2. Dados Pessoais Coletados e Finalidade do Tratamento</h2>
-      <p>O Lumina coleta apenas os dados estritamente necessários para viabilizar as funcionalidades do aplicativo. Abaixo, detalhamos quais dados coletamos e as respectivas finalidades:</p>
-      
+      <p>O Lumina coleta apenas os dados estritamente necessários para viabilizar as funcionalidades do aplicativo.
+        Abaixo, detalhamos quais dados coletamos e as respectivas finalidades:</p>
+
       <div class="cards">
         <div class="card">
           <strong>Cadastro e Acesso</strong>
-          <p style="font-size: 13px; margin: 0;">E-mail e credenciais de login. Se utilizado o Google OAuth, o Lumina recebe o identificador do Google e o e-mail público. <br><em>Finalidade: Identificar e autenticar o usuário com segurança.</em></p>
+          <p style="font-size: 13px; margin: 0;">E-mail e credenciais de login. Se utilizado o Google OAuth, o Lumina
+            recebe o identificador do Google e o e-mail público. <br><em>Finalidade: Identificar e autenticar o usuário
+              com segurança.</em></p>
         </div>
         <div class="card">
           <strong>Dados de Estudo</strong>
-          <p style="font-size: 13px; margin: 0;">Programas de estudo, matérias, aulas, anotações, resumos, revisões e questões personalizadas inseridas no app. <br><em>Finalidade: Execução do serviço principal de organização de estudos.</em></p>
+          <p style="font-size: 13px; margin: 0;">Programas de estudo, matérias, aulas, anotações, resumos, revisões e
+            questões personalizadas inseridas no app. <br><em>Finalidade: Execução do serviço principal de organização
+              de estudos.</em></p>
         </div>
         <div class="card">
           <strong>Progresso e Estatísticas</strong>
-          <p style="font-size: 13px; margin: 0;">Logs de sessões de estudo (Pomodoro), histórico de simulados diários respondidos, XP e ofensivas acumulados. <br><em>Finalidade: Gerar estatísticas de desempenho e guiar revisões inteligentes.</em></p>
+          <p style="font-size: 13px; margin: 0;">Logs de sessões de estudo (Pomodoro), histórico de simulados diários
+            respondidos, XP e ofensivas acumulados. <br><em>Finalidade: Gerar estatísticas de desempenho e guiar
+              revisões inteligentes.</em></p>
         </div>
         <div class="card">
           <strong>Dados Técnicos</strong>
-          <p style="font-size: 13px; margin: 0;">Modelo de dispositivo, sistema operacional (Android, iOS ou Windows), versão do app e logs técnicos de erro. <br><em>Finalidade: Resolução de bugs e otimização da experiência do app.</em></p>
+          <p style="font-size: 13px; margin: 0;">Modelo de dispositivo, sistema operacional (Android, iOS ou Windows),
+            versão do app e logs técnicos de erro. <br><em>Finalidade: Resolução de bugs e otimização da experiência do
+              app.</em></p>
         </div>
       </div>
 
       <h2>3. Bases Legais para o Tratamento (Art. 7º da LGPD)</h2>
-      <p>O tratamento de seus dados pessoais pelo Lumina está devidamente amparado pelas seguintes bases legais da LGPD:</p>
+      <p>O tratamento de seus dados pessoais pelo Lumina está devidamente amparado pelas seguintes bases legais da LGPD:
+      </p>
       <ul>
-        <li><strong>Consentimento do Titular (Art. 7º, I):</strong> Solicitado expressamente no momento do cadastro do usuário, no qual o titular manifesta sua concordância inequívoca com o tratamento de seus dados pessoais.</li>
-        <li><strong>Execução de Contrato (Art. 7º, V):</strong> Necessário para o fornecimento do serviço principal do Lumina (plano Free) e para o processamento de eventuais planos Premium contratados (Plus ou Pro).</li>
-        <li><strong>Legítimo Interesse (Art. 7º, IX):</strong> Utilizado exclusivamente para finalidades legítimas do controlador, tais como melhoria e manutenção de segurança do sistema, prevenção a fraudes e análise de estabilidade técnica do aplicativo.</li>
+        <li><strong>Consentimento do Titular (Art. 7º, I):</strong> Solicitado expressamente no momento do cadastro do
+          usuário, no qual o titular manifesta sua concordância inequívoca com o tratamento de seus dados pessoais.</li>
+        <li><strong>Execução de Contrato (Art. 7º, V):</strong> Necessário para o fornecimento do serviço principal do
+          Lumina (plano Free) e para o processamento de eventuais planos Premium contratados (Plus ou Pro).</li>
+        <li><strong>Legítimo Interesse (Art. 7º, IX):</strong> Utilizado exclusivamente para finalidades legítimas do
+          controlador, tais como melhoria e manutenção de segurança do sistema, prevenção a fraudes e análise de
+          estabilidade técnica do aplicativo.</li>
       </ul>
 
-      <h2>4. Tratamento de Dados de Menores de Idade (Art. 14 da LGPD)</h2>
-      <p>Embora a proposta principal do Lumina seja focada em concursos públicos (público majoritariamente acima de 18 anos), o aplicativo também oferece suporte à preparação para o ENEM e Vestibulares, permitindo o uso por menores de idade.</p>
-      <p>Em estrito cumprimento ao <strong>Artigo 14 da LGPD</strong>, o tratamento de dados pessoais de crianças e adolescentes (menores de 18 anos) no Lumina é realizado com o melhor interesse do menor em mente e requer o <strong>consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal</strong>.</p>
-      <p><strong>Importante:</strong> Ao realizar o cadastro no Lumina, se você for menor de 18 anos, você declara que possui a devida autorização e assistência de seus pais ou responsáveis legais para fornecer seus dados e consentir com estes termos. Se identificarmos qualquer cadastro de menor sem o respectivo respaldo legal, reservamo-nos o direito de suspender ou excluir a conta imediatamente para fins de conformidade legal.</p>
+      <h2>4. Uso por Menores de Idade</h2>
+      <p>O Lumina é voltado principalmente para estudantes maiores de 18 anos, especialmente pessoas em preparação para
+        concursos, vestibulares, ENEM e estudos de longo prazo.</p>
+
+      <p>Menores de idade somente devem utilizar o Lumina com autorização e supervisão de seus pais ou responsáveis
+        legais. Ao criar uma conta ou permitir o uso do aplicativo por menor de idade, o responsável declara estar
+        ciente do tratamento de dados necessário para a prestação do serviço.</p>
+
+      <p>Caso seja identificado uso por menor de idade sem autorização adequada, o Lumina poderá restringir ou excluir a
+        conta, mediante análise do caso e em conformidade com a legislação aplicável.</p>
 
       <h2>5. Armazenamento e Transferência Internacional de Dados</h2>
-      <p>O Lumina segue o modelo <em>offline-first</em>, priorizando o armazenamento dos seus dados localmente no próprio dispositivo móvel ou computador por meio de banco de dados local seguro (Isar DB).</p>
-      <p>Para a sincronização de dados e backup na nuvem, utilizamos a infraestrutura de backend em nuvem do <strong>Supabase</strong>. O banco de dados está fisicamente alocado e configurado na região geográfica de <strong>Brasília, DF, Brasil</strong> (localmente hospedado). Desta forma, <strong>não há transferência internacional de dados pessoais de estudos do usuário</strong>, mantendo a totalidade das informações armazenada dentro do território nacional brasileiro.</p>
+      <p>O Lumina segue o modelo <em>offline-first</em>, priorizando o armazenamento dos dados localmente no próprio
+        dispositivo móvel ou computador por meio do banco de dados local Isar.</p>
 
+      <p>Quando o usuário utiliza recursos de conta, autenticação, backup ou sincronização, os dados podem ser
+        processados por serviços de infraestrutura em nuvem, especialmente o Supabase, utilizado para autenticação,
+        banco de dados e segurança de acesso.</p>
+
+      <p>O banco de dados principal do Lumina é configurado em região no Brasil quando disponível no projeto Supabase.
+        Ainda assim, alguns serviços técnicos necessários ao funcionamento do app, como autenticação, distribuição,
+        segurança, provedores de loja, e-mail, monitoramento ou infraestrutura de rede, podem envolver processamento por
+        fornecedores com operação fora do Brasil, sempre limitado às finalidades descritas nesta Política.</p>
+
+      <p>O Lumina adota medidas técnicas e administrativas para proteger os dados pessoais, incluindo comunicação
+        criptografada, autenticação segura e políticas de acesso por usuário no banco de dados.</p>
       <h2>6. Compartilhamento de Dados</h2>
-      <p>O Lumina <strong>nunca comercializa seus dados pessoais</strong> sob nenhuma hipótese. O compartilhamento ocorre estritamente para fins de infraestrutura técnica necessária com os seguintes parceiros (operadores de dados):</p>
+      <p>O Lumina <strong>nunca comercializa seus dados pessoais</strong> sob nenhuma hipótese. O compartilhamento
+        ocorre estritamente para fins de infraestrutura técnica necessária com os seguintes parceiros (operadores de
+        dados):</p>
       <ul>
-        <li><strong>Supabase:</strong> Fornecedor do banco de dados na nuvem e do serviço de autenticação segura dos usuários.</li>
-        <li><strong>Google (Google OAuth):</strong> Quando utilizado o login rápido via conta do Google, para autenticar a identidade do usuário.</li>
-        <li><strong>Lojas de Aplicativos (Google Play e Apple App Store):</strong> Dados agregados e anônimos referentes a compras de assinaturas internas.</li>
+        <li><strong>Supabase:</strong> Fornecedor do banco de dados na nuvem e do serviço de autenticação segura dos
+          usuários.</li>
+        <li><strong>Google (Google OAuth):</strong> Quando utilizado o login rápido via conta do Google, para autenticar
+          a identidade do usuário.</li>
+        <li><strong>Lojas de Aplicativos (Google Play e Apple App Store):</strong> Dados agregados e anônimos referentes
+          a compras de assinaturas internas.</li>
       </ul>
 
       <h2>7. Direitos dos Titulares de Dados (Art. 18 da LGPD)</h2>
-      <p>A LGPD garante a você, titular dos dados, uma série de direitos que podem ser exercidos a qualquer momento, mediante requisição direta ao nosso Encarregado através do e-mail <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a>:</p>
+      <p>A LGPD garante a você, titular dos dados, uma série de direitos que podem ser exercidos a qualquer momento,
+        mediante requisição direta ao nosso Encarregado através do e-mail <a
+          href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a>:</p>
       <ul>
         <li>Confirmar a existência de tratamento de seus dados;</li>
         <li>Acessar as informações tratadas;</li>
         <li>Corrigir dados incompletos, inexatos ou desatualizados;</li>
-        <li>Solicitar a eliminação dos dados tratados com base no seu consentimento (salvo se mantidos por cumprimento de dever legal);</li>
+        <li>Solicitar a eliminação dos dados tratados com base no seu consentimento (salvo se mantidos por cumprimento
+          de dever legal);</li>
         <li>Obter a portabilidade dos dados a outro fornecedor de serviço;</li>
         <li>Revogar o consentimento previamente fornecido.</li>
       </ul>
 
       <h2>8. Exclusão de Conta e Eliminação Definitiva dos Dados</h2>
-      <p>Em conformidade com a LGPD e com as políticas das lojas de aplicativos (Google Play e Apple App Store), o Lumina oferece uma forma <strong>direta, automatizada e sem burocracias</strong> para que você elimine totalmente sua conta e seus dados:</p>
+      <p>Em conformidade com a LGPD e com as políticas das lojas de aplicativos (Google Play e Apple App Store), o
+        Lumina oferece uma forma <strong>direta, automatizada e sem burocracias</strong> para que você elimine
+        totalmente sua conta e seus dados:</p>
       <ol>
         <li>No aplicativo, vá até a aba de <strong>Configurações</strong> (no menu lateral);</li>
-        <li>Localize a seção <strong>Conta</strong> e clique no botão vermelho <strong>"Excluir minha conta e dados"</strong>;</li>
-        <li>Uma janela de confirmação de segurança será exibida. Digite a palavra de confirmação requisitada e confirme a ação.</li>
+        <li>Localize a seção <strong>Conta</strong> e clique no botão vermelho <strong>"Excluir minha conta e
+            dados"</strong>;</li>
+        <li>Uma janela de confirmação de segurança será exibida. Digite a palavra de confirmação requisitada e confirme
+          a ação.</li>
       </ol>
-      <p><strong>O que acontece ao clicar em Excluir?</strong> Nosso sistema executará uma transação imediata de exclusão. Isso apagará permanentemente todos os seus dados pessoais e de progresso (programas, matérias, aulas, questões, histórico, etc.) tanto do banco de dados na nuvem do Supabase quanto das pastas locais do Isar no seu dispositivo, além de remover sua credencial de acesso do nosso sistema de autenticação. Esta ação é irreversível.</p>
+      <p><strong>O que acontece ao clicar em Excluir?</strong> O Lumina solicitará a exclusão dos dados associados à sua
+        conta nos sistemas em nuvem utilizados pelo aplicativo e apagará os dados locais do dispositivo em que a ação
+        for executada. Cópias locais existentes em outros dispositivos podem permanecer até que o app seja removido, os
+        dados locais sejam limpos ou o dispositivo seja sincronizado novamente sem acesso à conta excluída. Esta ação é
+        irreversível para os dados removidos dos sistemas do Lumina.</p>
 
       <h2>9. Segurança dos Dados</h2>
-      <p>Adotamos medidas administrativas, técnicas e físicas robustas para salvaguardar a segurança das suas informações contra acessos não autorizados, perdas, destruições ou alterações inadvertidas. Isso inclui a utilização de conexões criptografadas (HTTPS/TLS) para qualquer comunicação do app com o servidor e políticas rigorosas de Row Level Security (RLS) no Supabase, garantindo que nenhum usuário possa ler ou modificar dados que pertençam a outro usuário sob qualquer hipótese.</p>
+      <p>Adotamos medidas administrativas, técnicas e físicas robustas para salvaguardar a segurança das suas
+        informações contra acessos não autorizados, perdas, destruições ou alterações inadvertidas. Isso inclui a
+        utilização de conexões criptografadas (HTTPS/TLS) para qualquer comunicação do app com o servidor e políticas
+        rigorosas de Row Level Security (RLS) no Supabase, projetadas para impedir que usuários acessem ou modifiquem
+        dados pertencentes a outros usuários.</p>
 
       <h2>10. Alterações nesta Política</h2>
-      <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir alterações no app ou melhorias legislativas. A data de última atualização estará sempre no topo do documento. Caso ocorram mudanças significativas que alterem os direitos garantidos ou a forma de tratamento de dados pessoais, o Lumina notificará você ativamente por meio de aviso destacado dentro do próprio aplicativo no próximo acesso.</p>
+      <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir alterações no app ou melhorias
+        legislativas. A data de última atualização estará sempre no topo do documento. Caso ocorram mudanças
+        significativas que alterem os direitos garantidos ou a forma de tratamento de dados pessoais, o Lumina
+        notificará você ativamente por meio de aviso destacado dentro do próprio aplicativo no próximo acesso.</p>
 
       <h2>11. Jurisdição e Contato</h2>
-      <p>Esta Política é regida pelas leis da República Federativa do Brasil, em particular pela Lei nº 13.709/2018 (LGPD). Para qualquer dúvida, reclamação ou solicitação, fica eleito o Foro da Comarca de Brasília, DF, Brasil, como o único competente.</p>
+      <p>Esta Política é regida pelas leis da República Federativa do Brasil. Dúvidas, reclamações ou solicitações
+        relacionadas a dados pessoais podem ser enviadas ao e-mail do Controlador e canal de privacidade.</p>
       <p>E-mail do Controlador e DPO: <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a></p>
     </main>
     <footer>
@@ -199,4 +359,5 @@
     </footer>
   </div>
 </body>
+
 </html>
