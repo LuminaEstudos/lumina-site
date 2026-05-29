@@ -20,22 +20,17 @@ A pasta de staging criada no app repo e:
 build/lumina_site_windows_release/
 ```
 
-## Onde Copiar
+O script tambem copia automaticamente `downloads/windows/` para este repo em
+`C:\Dev\lumina-site`.
 
-Copie a pasta `downloads` gerada no app repo para a raiz deste repo:
+## Caminhos Esperados
 
-```powershell
-Copy-Item -Recurse -Force `
-  <app-repo>\build\lumina_site_windows_release\downloads `
-  <site-repo>\
-```
-
-Depois confirme estes caminhos no site repo:
+Depois de uma release, confirme estes caminhos no site repo:
 
 ```text
-downloads/windows/lumina.appinstaller
+downloads/windows/LuminaSetup.exe
 downloads/windows/manifest.json
-downloads/windows/versions/lumina_<msixVersion>.msix
+downloads/windows/releases/
 ```
 
 ## URLs Publicas Esperadas
@@ -43,16 +38,15 @@ downloads/windows/versions/lumina_<msixVersion>.msix
 Depois do deploy, estas URLs devem responder sem 404:
 
 ```text
-https://www.luminaestudos.com.br/downloads/windows/lumina.appinstaller
+https://www.luminaestudos.com.br/downloads/windows/LuminaSetup.exe
 https://www.luminaestudos.com.br/downloads/windows/manifest.json
-https://www.luminaestudos.com.br/downloads/windows/versions/lumina_<msixVersion>.msix
+https://www.luminaestudos.com.br/downloads/windows/releases/releases.win.json
 ```
 
 ## Regras
 
 - O botao principal do site deve apontar para
-  `downloads/windows/lumina.appinstaller`.
-- Nao use link raiz para `lumina.appinstaller`.
+  `downloads/windows/LuminaSetup.exe`.
 - Nao use GitHub Pages como URL publica final.
 - Nao publique certificados privados, senhas, tokens ou secrets.
 - Nao dependa de backend para servir os arquivos.

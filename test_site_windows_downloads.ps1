@@ -7,7 +7,7 @@ Set-Location $repoRoot
 
 $requiredDirectories = @(
   "downloads\windows",
-  "downloads\windows\versions"
+  "downloads\windows\releases"
 )
 
 foreach ($directory in $requiredDirectories) {
@@ -21,8 +21,8 @@ $testerPage = Get-Content "testar\index.html" -Raw
 $privacyPage = Get-Content "privacidade\index.html" -Raw
 $termsPage = Get-Content "termos\index.html" -Raw
 
-if ($index -notmatch 'href="downloads/windows/lumina\.appinstaller"') {
-  throw "index.html must link to downloads/windows/lumina.appinstaller."
+if ($index -notmatch 'href="downloads/windows/LuminaSetup\.exe"') {
+  throw "index.html must link to downloads/windows/LuminaSetup.exe."
 }
 
 if ($index -notmatch '--primary:\s*#a78bfa' -or $index -notmatch '--primary-strong:\s*#8b5cf6') {
@@ -56,9 +56,11 @@ if ($index -notmatch '>Baixar Lumina para Windows<' -or $testerPage -notmatch '>
 }
 
 $forbidden = @(
-  "https://luminaestudos.github.io/lumina-site/",
-  "build/windows_publish",
-  "build\windows_publish"
+  ("https://luminaestudos.github.io/" + "lumina-site/"),
+  ("build/windows_" + "publish"),
+  ("build\windows_" + "publish"),
+  ("lumina." + "app" + "installer"),
+  (".m" + "six")
 )
 
 $files = @(
@@ -71,19 +73,6 @@ foreach ($file in $files) {
   foreach ($value in $forbidden) {
     if ($text.Contains($value)) {
       throw "Forbidden value '$value' found in $file."
-    }
-  }
-
-  $forbiddenRootInstallerPatterns = @(
-    'href="/lumina.appinstaller"',
-    "href='/lumina.appinstaller'",
-    "a.href = '/lumina.appinstaller'",
-    'a.href = "/lumina.appinstaller"'
-  )
-
-  foreach ($value in $forbiddenRootInstallerPatterns) {
-    if ($text.Contains($value)) {
-      throw "Forbidden root installer reference '$value' found in $file."
     }
   }
 }

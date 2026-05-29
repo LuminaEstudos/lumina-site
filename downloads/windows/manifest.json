@@ -1,12 +1,13 @@
 {
   "versionName": "0.39.4",
   "buildNumber": 4,
-  "msixVersion": "0.39.4.4",
-  "msixFileName": "lumina_0.39.4.4.msix",
-  "msixUrl": "https://www.luminaestudos.com.br/downloads/windows/versions/lumina_0.39.4.4.msix",
-  "appInstallerUrl": "https://www.luminaestudos.com.br/downloads/windows/lumina.appinstaller",
-  "sha256": "e5ecb1ea362444fe28fc9cae9c0c13e96c548afcae020891d78d7c39f25b7dca",
-  "generatedAt": "2026-05-29T04:25:04Z",
+  "velopackVersion": "0.39.4-beta.4",
+  "installerFileName": "LuminaSetup.exe",
+  "installerUrl": "https://www.luminaestudos.com.br/downloads/windows/LuminaSetup.exe",
+  "releasesUrl": "https://www.luminaestudos.com.br/downloads/windows/releases",
+  "sha256": "pending",
+  "generatedAt": "pending",
   "channel": "beta",
-  "platform": "windows"
+  "platform": "windows",
+  "distribution": "velopack"
 }
