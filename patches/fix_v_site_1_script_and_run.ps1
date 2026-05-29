@@ -9,7 +9,7 @@ if (!(Test-Path $path)) {
 
 $content = [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8)
 
-# Garante que o script rode a partir da raiz C:\lumina-site,
+# Garante que o script rode a partir da raiz do repo,
 # mesmo se for chamado de outro lugar.
 if (!$content.Contains('Set-Location $siteRoot')) {
   $prefix = @(

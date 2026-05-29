@@ -3,129 +3,274 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio - Lumina</title>
-  <meta name="description" content="Lumina e um app de estudos com foco, Pomodoro, questoes, revisao e dashboard.">
-  <meta name="theme-color" content="#7c3aed">
+  <title>Lumina Windows Beta</title>
+  <meta name="description" content="Baixe o Lumina Windows beta pelo site oficial.">
+  <meta name="theme-color" content="#101828">
   <style>
     :root {
       color-scheme: dark;
-      --bg: #080711;
-      --surface: #12101f;
-      --surface-strong: #1b1830;
-      --text: #f5f3ff;
-      --muted: #b8b3cf;
-      --faint: #8d86a7;
-      --primary: #a78bfa;
-      --primary-strong: #8b5cf6;
-      --green: #34d399;
-      --amber: #fbbf24;
-      --border: rgba(255,255,255,.12);
+      --bg: #0b1020;
+      --panel: #111827;
+      --panel-soft: #172033;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --faint: #94a3b8;
+      --line: rgba(255,255,255,.14);
+      --blue: #38bdf8;
+      --blue-strong: #0284c7;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #fb7185;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124, 58, 237, .30), transparent 34rem),
-        radial-gradient(circle at bottom right, rgba(167, 139, 250, .16), transparent 28rem),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.6;
     }
-    a { color: var(--primary); text-decoration: none; }
+
+    a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 18px 56px; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 24px 18px 52px; }
+
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 24px;
+      padding-bottom: 22px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; color: var(--text); }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+    }
+
     .logo {
-      width: 42px; height: 42px;
-      border-radius: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(167,139,250,.34), rgba(124,58,237,.18));
-      border: 1px solid rgba(167,139,250,.42);
-      box-shadow: 0 0 32px rgba(124,58,237,.22);
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #07111f;
       font-weight: 900;
     }
+
     nav { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-    nav a { color: var(--muted); font-weight: 800; font-size: 14px; }
-    nav .nav-cta {
-      color: white;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      box-shadow: 0 12px 34px rgba(124,58,237,.22);
+    nav a { color: var(--muted); font-weight: 750; font-size: 14px; }
+    nav .active { color: var(--text); }
+
+    .hero {
+      min-height: 68vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(310px, .98fr);
+      align-items: center;
+      gap: clamp(22px, 4vw, 52px);
+      padding: clamp(26px, 5vw, 58px) 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
-    .hero, main, .panel {
-      background: linear-gradient(180deg, rgba(27,24,48,.88), rgba(18,16,31,.78));
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      padding: clamp(22px, 4vw, 42px);
-      box-shadow: 0 22px 70px rgba(0,0,0,.28);
-    }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 18px; align-items: stretch; }
-    h1 { margin: 0 0 12px; font-size: clamp(34px, 6vw, 62px); line-height: .98; letter-spacing: -.045em; }
-    h2 { margin: 32px 0 10px; font-size: 24px; line-height: 1.2; letter-spacing: -.02em; }
-    h3 { margin: 0 0 8px; font-size: 17px; }
-    p, li { color: var(--muted); }
-    .lead { font-size: 18px; max-width: 760px; }
-    .pill {
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(167,139,250,.14);
-      border: 1px solid rgba(167,139,250,.28);
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 900;
       margin-bottom: 18px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 850;
+      text-transform: uppercase;
     }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    p, li { color: var(--muted); }
+    .lead { font-size: 18px; max-width: 720px; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
+      min-height: 48px;
       padding: 12px 16px;
-      border-radius: 14px;
-      font-weight: 900;
-      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      font-weight: 850;
+      border: 1px solid var(--line);
     }
-    .button.primary { color: white; background: linear-gradient(135deg, var(--primary), var(--primary-strong)); box-shadow: 0 18px 46px rgba(124,58,237,.28); }
-    .button.secondary { color: var(--text); background: rgba(255,255,255,.055); }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
-    .card { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.045); border: 1px solid var(--border); }
-    .card strong { color: var(--text); display: block; margin-bottom: 6px; }
-    .phone {
-      min-height: 100%;
-      border-radius: 28px;
-      border: 1px solid rgba(167,139,250,.28);
-      background:
-        radial-gradient(circle at top, rgba(167,139,250,.18), transparent 18rem),
-        rgba(8,7,17,.62);
-      padding: 18px;
-      display: grid;
-      align-content: center;
+
+    .button.primary {
+      color: #04111f;
+      background: var(--blue);
+      border-color: rgba(56,189,248,.8);
+    }
+
+    .button.primary:hover {
+      background: #7dd3fc;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+    }
+
+    .button.secondary[aria-disabled="true"] {
+      color: var(--faint);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .terminal {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #090d18;
+      box-shadow: 0 24px 90px rgba(0,0,0,.34);
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 12px;
+      padding: 12px 14px;
+      background: #151d2f;
+      border-bottom: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 13px;
+      font-weight: 750;
     }
-    .mock-row { height: 12px; border-radius: 999px; background: rgba(255,255,255,.10); }
-    .mock-card { border-radius: 18px; padding: 16px; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.10); }
-    .status { color: var(--green); font-weight: 900; }
-    .warning { color: var(--amber); font-weight: 900; }
-    .steps { counter-reset: step; display: grid; gap: 12px; margin-top: 18px; }
-    .step { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; padding: 16px; border-radius: 18px; background: rgba(255,255,255,.045); border: 1px solid var(--border); }
-    .step:before { counter-increment: step; content: counter(step); width: 34px; height: 34px; border-radius: 999px; display: grid; place-items: center; background: rgba(167,139,250,.16); color: var(--primary); font-weight: 900; }
-    footer { margin-top: 28px; color: var(--faint); font-size: 13px; text-align: center; }
-    @media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { header { align-items: flex-start; flex-direction: column; } nav { gap: 10px; } .actions { flex-direction: column; } .button { width: 100%; } }
+
+    .status-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-right: 8px;
+    }
+
+    .terminal-body { padding: 18px; display: grid; gap: 14px; }
+
+    .release-line {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .release-line strong { color: var(--text); }
+    .ok { color: var(--green); font-weight: 850; }
+    .warn { color: var(--amber); font-weight: 850; }
+
+    .section {
+      padding: clamp(28px, 5vw, 48px) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+    }
+
+    .card p { margin-bottom: 0; }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .step {
+      counter-increment: step;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-soft);
+      padding: 18px;
+    }
+
+    .step::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      background: rgba(56,189,248,.15);
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .notice {
+      border-left: 4px solid var(--amber);
+      background: rgba(245,158,11,.10);
+      padding: 14px 16px;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 26px;
+      color: var(--faint);
+      font-size: 13px;
+    }
+
+    @media (max-width: 880px) {
+      .hero, .grid, .steps { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      header { align-items: flex-start; flex-direction: column; }
+      .actions { flex-direction: column; }
+      .button { width: 100%; }
+      .release-line { grid-template-columns: 1fr; gap: 4px; }
+    }
   </style>
 </head>
 <body>
@@ -133,53 +278,130 @@
     <header>
       <a class="brand" href="./">
         <span class="logo">L</span>
-        <span><strong style="display:block;color:var(--text)">Lumina</strong><span style="color:var(--muted);font-size:13px">App de estudos</span></span>
+        <span>
+          <strong style="display:block;color:var(--text)">Lumina</strong>
+          <span style="color:var(--muted);font-size:13px">Windows beta</span>
+        </span>
       </a>
       <nav>
-        <a href="./">Inicio</a>
-        <a class="nav-cta" href="./testar/">Quero testar</a>
+        <a class="active" href="./">Download</a>
+        <a href="./testar/">Beta fechado</a>
         <a href="./privacidade/">Privacidade</a>
         <a href="./termos/">Termos</a>
         <a href="mailto:luminaestudos.app@gmail.com">Suporte</a>
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="hero-grid">
+    <main>
+      <section class="hero">
         <div>
-          <span class="pill">Teste fechado gratuito</span>
-          <h1>Estude com mais foco, clareza e ritmo.</h1>
-          <p class="lead">Lumina e um app de estudos com materias, aulas, questoes, revisoes, Pomodoro, dashboard e uma experiencia escura pensada para longos periodos de estudo.</p>
+          <span class="eyebrow"><span class="status-dot"></span>Beta fechado para Windows</span>
+          <h1>Lumina</h1>
+          <p class="lead">Instale o Lumina Windows beta pelo arquivo App Installer oficial. Ele mantém o app preparado para atualizações automáticas e preserva o version gate remoto usado pelo Lumina.</p>
           <div class="actions">
-            <a class="button primary" href="./testar/">Quero testar o Lumina</a>
-            <a class="button secondary" href="mailto:luminaestudos.app@gmail.com?subject=Quero%20testar%20o%20Lumina&body=Ola!%20Quero%20testar%20o%20Lumina.%0A%0AMeu%20email%20para%20convite%20Firebase%20e:%0A%0AMeu%20celular%20e:%20Android">Pedir convite por email</a>
+            <a class="button primary" href="downloads/windows/lumina.appinstaller">Baixar Lumina para Windows</a>
+            <a class="button secondary" id="msix-link" href="downloads/windows/manifest.json">Ver manifesto da versão</a>
           </div>
         </div>
-        <aside class="phone" aria-label="Resumo visual do Lumina">
-          <div class="mock-card">
-            <strong>Dashboard de estudos</strong>
-            <p>Veja progresso, foco e desempenho em uma interface limpa.</p>
-            <div class="mock-row" style="width:88%"></div>
-            <div class="mock-row" style="width:62%;margin-top:10px"></div>
+
+        <aside class="terminal" aria-label="Informações de release">
+          <div class="terminal-top">
+            <span>Lumina Windows</span>
+            <span class="ok">App Installer</span>
           </div>
-          <div class="mock-card">
-            <strong>Pomodoro integrado</strong>
-            <p>Inicie, pause e mantenha seu ritmo de estudo.</p>
-          </div>
-          <div class="mock-card">
-            <strong class="status">Premium sem cobranca real</strong>
-            <p>Nesta fase, a tela Premium serve apenas para validar interesse.</p>
+          <div class="terminal-body">
+            <div class="release-line"><strong>Canal</strong><span id="release-channel">beta</span></div>
+            <div class="release-line"><strong>Versão</strong><span id="release-version">Aguardando publicação</span></div>
+            <div class="release-line"><strong>Instalador</strong><span>downloads/windows/lumina.appinstaller</span></div>
+            <div class="release-line"><strong>Atualizações</strong><span>Checagem pelo App Installer e version gate no app</span></div>
+            <div class="release-line"><strong>Status</strong><span class="warn">Acesso somente para testers convidados</span></div>
           </div>
         </aside>
-      </div>
-      <div class="cards">
-        <div class="card"><strong>Organizacao</strong><p>Estruture materias, aulas e questoes em um fluxo simples.</p></div>
-        <div class="card"><strong>Foco</strong><p>Use Pomodoro e sessoes de estudo para manter constancia.</p></div>
-        <div class="card"><strong>Evolucao</strong><p>Acompanhe dashboard, revisoes e desempenho ao longo do tempo.</p></div>
-      </div>
-    </section>
+      </section>
 
-    <footer>Lumina Estudos - luminaestudos.app@gmail.com</footer>
+      <section class="section">
+        <h2>Como instalar</h2>
+        <div class="steps">
+          <div class="step">
+            <h3>Baixe pelo botão</h3>
+            <p>Use o arquivo `lumina.appinstaller` servido por este domínio oficial.</p>
+          </div>
+          <div class="step">
+            <h3>Abra o instalador</h3>
+            <p>O Windows App Installer mostra o nome do app, versão, publicador e permissões.</p>
+          </div>
+          <div class="step">
+            <h3>Entre com sua conta</h3>
+            <p>O beta é fechado. Use apenas a conta liberada para testes do Lumina.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Se o Windows bloquear</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Confira a origem</h3>
+            <p>O instalador deve vir de `www.luminaestudos.com.br`. Não use links enviados por terceiros.</p>
+          </div>
+          <div class="card">
+            <h3>Certificado</h3>
+            <p>Durante o beta, o Windows pode pedir confirmação adicional até o certificado ganhar reputação.</p>
+          </div>
+          <div class="card">
+            <h3>Suporte</h3>
+            <p>Se aparecer erro de parsing ou instalação, envie print para <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Atualizações automáticas</h2>
+        <p>O Lumina Windows beta usa `.appinstaller` para verificar atualizações no início do app. O aplicativo também mantém o version gate Supabase: builds antigas podem ser bloqueadas para login, sync, Comunidade e recursos remotos quando não forem mais seguras.</p>
+        <div class="notice">Se uma atualização for obrigatória, atualize antes de sincronizar dados. Seus dados locais permanecem preservados no dispositivo.</div>
+      </section>
+
+      <section class="section">
+        <h2>Beta fechado</h2>
+        <p>Esta distribuição é destinada apenas a testers convidados. O Lumina ainda está em validação e pode receber mudanças frequentes de versão, instalação e regras de compatibilidade.</p>
+        <div class="actions">
+          <a class="button secondary" href="./privacidade/">Política de privacidade</a>
+          <a class="button secondary" href="./termos/">Termos de uso</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Lumina Estudos</span>
+      <span><a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a></span>
+    </footer>
   </div>
+
+  <script>
+    async function loadWindowsManifest() {
+      try {
+        const response = await fetch('downloads/windows/manifest.json', { cache: 'no-store' });
+        if (!response.ok) return;
+
+        const manifest = await response.json();
+        if (manifest.msixVersion) {
+          document.getElementById('release-version').textContent = manifest.msixVersion;
+        }
+        if (manifest.channel) {
+          document.getElementById('release-channel').textContent = manifest.channel;
+        }
+        if (manifest.msixUrl) {
+          const link = document.getElementById('msix-link');
+          link.href = manifest.msixUrl;
+          link.textContent = 'Baixar MSIX alternativo';
+          link.removeAttribute('aria-disabled');
+        }
+      } catch (error) {
+        document.getElementById('msix-link').setAttribute('aria-disabled', 'true');
+      }
+    }
+
+    loadWindowsManifest();
+  </script>
 </body>
 </html>

@@ -302,7 +302,7 @@ $readme = @(
 '',
 '## URL',
 '',
-'https://luminaestudos.github.io/lumina-site/'
+'https://www.luminaestudos.com.br/'
 )
 
 Write-Utf8File "README.md" ($readme -join "`r`n")

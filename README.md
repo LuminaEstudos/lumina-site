@@ -1,14 +1,26 @@
 # Lumina Site
 
-Site institucional e legal do Lumina.
+Site oficial, legal e de download beta do Lumina.
 
 ## Paginas
 
-- Inicio
-- Quero testar
+- Download Windows beta
+- Beta fechado
 - Privacidade
 - Termos
 
-## URL
+## URL Publica
 
-https://luminaestudos.github.io/lumina-site/
+https://www.luminaestudos.com.br/
+
+## Downloads Windows
+
+Os arquivos Windows sao publicados em:
+
+```text
+downloads/windows/lumina.appinstaller
+downloads/windows/manifest.json
+downloads/windows/versions/lumina_<msixVersion>.msix
+```
+
+Veja `docs/windows_downloads.md` para o fluxo de copia a partir do app repo.
