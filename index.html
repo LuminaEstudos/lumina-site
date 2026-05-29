@@ -3,304 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lumina Windows Beta</title>
-  <meta name="description" content="Baixe o Lumina Windows beta pelo instalador oficial.">
+  <title>Lumina Windows Beta - Instalador Oficial</title>
+  <meta name="description" content="Baixe o Lumina Windows beta pelo instalador oficial de forma rápida e segura.">
   <meta name="theme-color" content="#7c3aed">
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #080711;
-      --panel: #12101f;
-      --panel-soft: #1b1830;
-      --text: #f5f3ff;
-      --muted: #cfc8ff;
-      --faint: #958daf;
-      --line: rgba(255,255,255,.14);
-      --primary: #a78bfa;
-      --primary-strong: #8b5cf6;
-      --accent: #34d399;
-      --amber: #f59e0b;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 18% 12%, rgba(124,58,237,.30), transparent 28rem),
-        radial-gradient(circle at 82% 18%, rgba(167,139,250,.16), transparent 26rem),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 24px 18px 52px; }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding-bottom: 22px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text);
-    }
-
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      color: white;
-      font-weight: 900;
-      box-shadow: 0 12px 40px rgba(124,58,237,.26);
-    }
-
-    nav { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-    nav a { color: var(--muted); font-weight: 750; font-size: 14px; }
-    nav .active { color: var(--text); }
-
-    .hero {
-      min-height: 68vh;
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(310px, .98fr);
-      align-items: center;
-      gap: clamp(22px, 4vw, 52px);
-      padding: clamp(26px, 5vw, 58px) 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(40px, 7vw, 76px);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.16;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      margin: 0 0 6px;
-      font-size: 17px;
-      letter-spacing: 0;
-    }
-
-    p, li { color: var(--muted); }
-    .lead { font-size: 18px; max-width: 720px; }
-
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-weight: 850;
-      border: 1px solid var(--line);
-    }
-
-    .button.primary {
-      color: white;
-      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      border-color: rgba(167,139,250,.72);
-      box-shadow: 0 18px 46px rgba(124,58,237,.30);
-    }
-
-    .button.primary:hover {
-      background: linear-gradient(135deg, #c4b5fd, var(--primary));
-      text-decoration: none;
-    }
-
-    .button.secondary {
-      color: var(--text);
-      background: rgba(255,255,255,.06);
-    }
-
-    .button.secondary[aria-disabled="true"] {
-      color: var(--faint);
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-
-    .terminal {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: rgba(8,7,17,.92);
-      box-shadow: 0 24px 90px rgba(0,0,0,.34);
-    }
-
-    .terminal-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      background: rgba(27,24,48,.92);
-      border-bottom: 1px solid var(--line);
-      color: var(--faint);
-      font-size: 13px;
-      font-weight: 750;
-    }
-
-    .status-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--primary);
-      margin-right: 8px;
-    }
-
-    .terminal-body { padding: 18px; display: grid; gap: 14px; }
-
-    .release-line {
-      display: grid;
-      grid-template-columns: 132px 1fr;
-      gap: 12px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .release-line strong { color: var(--text); }
-    .ok { color: var(--accent); font-weight: 850; }
-    .warn { color: var(--amber); font-weight: 850; }
-
-    .section {
-      padding: clamp(28px, 5vw, 48px) 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--panel);
-      padding: 18px;
-    }
-
-    .card p { margin-bottom: 0; }
-
-    .steps {
-      counter-reset: step;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .step {
-      counter-increment: step;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--panel-soft);
-      padding: 18px;
-    }
-
-    .step::before {
-      content: counter(step);
-      display: grid;
-      place-items: center;
-      width: 32px;
-      height: 32px;
-      margin-bottom: 14px;
-      border-radius: 8px;
-      background: rgba(167,139,250,.16);
-      color: var(--primary);
-      font-weight: 900;
-    }
-
-    .notice {
-      border-left: 4px solid var(--amber);
-      background: rgba(245,158,11,.10);
-      padding: 14px 16px;
-      color: var(--muted);
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      padding-top: 26px;
-      color: var(--faint);
-      font-size: 13px;
-    }
-
-    @media (max-width: 880px) {
-      .hero, .grid, .steps { grid-template-columns: 1fr; }
-      .hero { min-height: auto; }
-    }
-
-    @media (max-width: 640px) {
-      header { align-items: flex-start; flex-direction: column; }
-      .actions { flex-direction: column; }
-      .button { width: 100%; }
-      .release-line { grid-template-columns: 1fr; gap: 4px; }
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css">
+  <script>document.documentElement.classList.add('js-enabled');</script>
 </head>
 <body>
   <div class="wrap">
     <header>
       <a class="brand" href="./">
-        <span class="logo">L</span>
-        <span>
-          <strong style="display:block;color:var(--text)">Lumina</strong>
-          <span style="color:var(--muted);font-size:13px">App de estudos</span>
+        <img class="logo-png" src="./assets/app_icon.png" alt="Lumina Logo">
+        <span class="brand-text">
+          <strong>Lumina</strong>
+          <span>App de estudos</span>
         </span>
       </a>
       <nav>
         <a class="active" href="./">Download</a>
+        <a href="./preview/">Preview</a>
+        <a href="./tutoriais/">Tutoriais</a>
         <a href="./testar/">Teste Windows</a>
-        <a href="./privacidade/">Privacidade</a>
-        <a href="./termos/">Termos</a>
         <a href="mailto:luminaestudos.app@gmail.com">Suporte</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <div>
-          <span class="eyebrow"><span class="status-dot"></span>Acesso beta para Windows</span>
-          <h1>Lumina</h1>
+      <!-- Hero Section -->
+      <section class="hero reveal">
+        <div class="entrance-stagger-parent">
+          <span class="eyebrow"><span class="status-dot pulsing"></span>Acesso beta para Windows</span>
+          <h1>Lumina Estudos</h1>
           <p class="lead">Instale o Lumina Windows beta pelo instalador oficial. Ele preserva o version gate remoto usado pelo app e permite atualizar a instalação existente quando uma nova build for publicada.</p>
           <div class="actions">
             <a class="button primary" id="installer-link" href="downloads/windows/LuminaSetup.exe">Baixar Lumina para Windows</a>
@@ -310,64 +43,83 @@
 
         <aside class="terminal" aria-label="Informações de release">
           <div class="terminal-top">
-            <span>Lumina Windows</span>
+            <div class="window-controls">
+              <div class="dot close"></div>
+              <div class="dot minimize"></div>
+              <div class="dot zoom"></div>
+            </div>
+            <span class="terminal-title">Lumina Windows Terminal</span>
             <span class="ok">Velopack</span>
           </div>
           <div class="terminal-body">
             <div class="release-line"><strong>Canal</strong><span id="release-channel">beta</span></div>
             <div class="release-line"><strong>Versão</strong><span id="release-version">Aguardando publicação</span></div>
             <div class="release-line"><strong>Instalador</strong><span>downloads/windows/LuminaSetup.exe</span></div>
-            <div class="release-line"><strong>Atualizações</strong><span>Version gate no app com link para a build atual</span></div>
+            <div class="release-line"><strong>Atualizações</strong><span>Version gate ativo com link automático</span></div>
             <div class="release-line"><strong>Status</strong><span class="warn">Somente testers convidados</span></div>
           </div>
         </aside>
       </section>
 
+      <!-- Grid de Passos -->
       <section class="section">
-        <h2>Como instalar</h2>
+        <div class="section-header reveal">
+          <h2>Como realizar a instalação</h2>
+          <p class="lead" style="font-size:16px;">Siga o guia rápido abaixo para preparar o aplicativo de estudos no seu dispositivo Windows.</p>
+        </div>
         <div class="steps">
-          <div class="step">
+          <div class="step reveal-left">
             <h3>Baixe pelo botão</h3>
-            <p>Use o arquivo `LuminaSetup.exe` servido por este domínio oficial.</p>
+            <p>Use o arquivo executável <code>LuminaSetup.exe</code> servido com segurança por este domínio oficial.</p>
           </div>
-          <div class="step">
+          <div class="step reveal">
             <h3>Abra o instalador</h3>
-            <p>O instalador cria ou atualiza a instalação local do Lumina.</p>
+            <p>Execute o instalador baixado para criar ou atualizar automaticamente a sua instalação local do Lumina.</p>
           </div>
-          <div class="step">
+          <div class="step reveal-right">
             <h3>Entre com sua conta</h3>
-            <p>O beta é fechado. Use apenas a conta liberada para testes do Lumina.</p>
+            <p>O beta é restrito. Utilize exclusivamente o endereço de e-mail liberado para os seus testes do Lumina.</p>
           </div>
         </div>
       </section>
 
-      <section class="section">
-        <h2>Se o Windows bloquear</h2>
+      <!-- Dicas e Origem -->
+      <section class="section reveal-right">
+        <div class="section-header">
+          <h2>Se o Windows bloquear o download</h2>
+          <p class="lead" style="font-size:16px;">O Windows SmartScreen pode alertar sobre arquivos executáveis novos de forma preventiva.</p>
+        </div>
         <div class="grid">
           <div class="card">
             <h3>Confira a origem</h3>
-            <p>O instalador deve vir de `www.luminaestudos.com.br`. Não use links enviados por terceiros.</p>
+            <p>O instalador do app deve vir sempre de <code>www.luminaestudos.com.br</code>. Nunca instale links enviados por terceiros.</p>
           </div>
           <div class="card">
-            <h3>Certificado</h3>
-            <p>Durante o beta, o SmartScreen pode pedir confirmação adicional até o instalador ganhar reputação.</p>
+            <h3>Certificado SmartScreen</h3>
+            <p>Durante o período de beta, o Windows pode pedir confirmações adicionais até o instalador ganhar reputação na plataforma.</p>
           </div>
           <div class="card">
-            <h3>Suporte</h3>
-            <p>Se aparecer erro de bloqueio ou instalação, envie print para <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a>.</p>
+            <h3>Suporte Técnico</h3>
+            <p>Caso apareça algum erro impeditivo de instalação, envie um print com os detalhes para <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a>.</p>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <!-- Informações Adicionais -->
+      <section class="section reveal-left">
         <h2>Atualizações automáticas</h2>
-        <p>O Lumina Windows beta usa o release manifest remoto para saber quando existe uma build nova. Se uma atualização for obrigatória, o app bloqueia login, sync, Comunidade e recursos remotos até você baixar o instalador atual.</p>
-        <div class="notice">Se uma atualização for obrigatória, use o botão de download antes de sincronizar dados. Seus dados locais permanecem preservados no dispositivo.</div>
+        <p class="lead" style="margin-bottom: 16px;">O Lumina Windows beta utiliza o release manifest remoto para identificar publicações de builds novas.</p>
+        <p>Se uma atualização for obrigatória, o aplicativo bloqueará temporariamente o login, a sincronização de dados, a aba Comunidade e os recursos remotos até que você baixe o instalador mais recente por este site.</p>
+        <div class="notice">
+          <strong>Atenção:</strong> Se uma atualização for declarada obrigatória, utilize o botão de download acima antes de sincronizar seus dados. Suas informações locais permanecem perfeitamente preservadas no banco de dados local do seu dispositivo.
+        </div>
       </section>
 
-      <section class="section">
-        <h2>Acesso de teste</h2>
-        <p>Esta distribuição é destinada apenas a testers convidados. O Lumina ainda está em validação e pode receber mudanças frequentes de versão, instalação e regras de compatibilidade.</p>
+      <!-- Validação e Acesso -->
+      <section class="section reveal" style="border-bottom: none;">
+        <h2>Acesso controlado de testes</h2>
+        <p class="lead" style="margin-bottom: 24px;">Esta distribuição exclusiva destina-se somente a testadores convidados pelo desenvolvedor.</p>
+        <p style="margin-bottom: 24px;">O Lumina encontra-se em fase ativa de validação técnica, o que significa que ele poderá receber atualizações de versão frequentes, correções de instalação e alterações nas regras de compatibilidade sem aviso prévio.</p>
         <div class="actions">
           <a class="button secondary" href="./privacidade/">Política de privacidade</a>
           <a class="button secondary" href="./termos/">Termos de uso</a>
@@ -377,6 +129,10 @@
 
     <footer>
       <span>Lumina Estudos</span>
+      <div class="footer-badge-group">
+        <a class="footer-badge" href="./privacidade/">Privacidade</a>
+        <a class="footer-badge" href="./termos/">Termos de Uso</a>
+      </div>
       <span><a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a></span>
     </footer>
   </div>
@@ -403,6 +159,30 @@
     }
 
     loadWindowsManifest();
+  </script>
+  <script src="./animation.js"></script>
+  <script>
+    /* Lógica Fallback Local: Garante scroll reveal mesmo se o navegador bloquear scripts externos via file:/// */
+    document.addEventListener("DOMContentLoaded", () => {
+      document.documentElement.classList.add("js-enabled");
+      const revealEls = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+      if (revealEls.length > 0 && "IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            } else {
+              entry.target.classList.remove("visible");
+            }
+          });
+        }, {
+          root: null,
+          rootMargin: "-20px 0px -40px 0px",
+          threshold: 0.05
+        });
+        revealEls.forEach(el => revealObserver.observe(el));
+      }
+    });
   </script>
 </body>
 </html>

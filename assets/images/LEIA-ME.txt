@@ -1,0 +1,11 @@
+Instruções para Adicionar os Prints do Aplicativo Lumina
+======================================================
+
+Para exibir os prints reais do seu aplicativo nas páginas de preview e tutoriais, basta salvar as capturas de tela nesta pasta (`assets/images/`) com os seguintes nomes de arquivo (formato PNG recomendado):
+
+1. `dashboard.png` - Captura de tela do Dashboard Principal e Pomodoro.
+2. `community.png` - Captura de tela da Aba Comunidade.
+3. `revision.png` - Captura de tela do Fluxo de Revisões Espaçadas.
+4. `import.png`    - (Opcional) Captura ilustrando a importação de questões.
+
+Enquanto você não adiciona os arquivos reais, o site exibirá blocos de simulação (placeholders) elegantes em CSS glassmorphism com animações e descrições, garantindo que o design permaneça deslumbrante e não exiba imagens quebradas!

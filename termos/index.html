@@ -5,104 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Termos de Uso - Lumina</title>
   <meta name="theme-color" content="#7c3aed">
-  <style>
-    :root { color-scheme: dark; --bg: #080711; --surface: #12101f; --surface-strong: #1b1830; --text: #f5f3ff; --muted: #b8b3cf; --faint: #8d86a7; --primary: #a78bfa; --border: rgba(255,255,255,.12); }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at top left, rgba(124,58,237,.28), transparent 34rem), radial-gradient(circle at bottom right, rgba(167,139,250,.16), transparent 28rem), var(--bg); color: var(--text); line-height: 1.65; }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 18px 56px; }
-    header { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 24px; }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .logo { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(167,139,250,.32), rgba(124,58,237,.18)); border: 1px solid rgba(167,139,250,.42); box-shadow: 0 0 32px rgba(124,58,237,.22); font-weight: 900; }
-    nav { display: flex; gap: 14px; flex-wrap: wrap; }
-    nav a { color: var(--muted); font-weight: 700; font-size: 14px; }
-    main { background: linear-gradient(180deg, rgba(27,24,48,.84), rgba(18,16,31,.78)); border: 1px solid var(--border); border-radius: 24px; padding: clamp(22px, 4vw, 38px); box-shadow: 0 22px 70px rgba(0,0,0,.28); }
-    h1 { margin: 0 0 12px; font-size: clamp(34px, 6vw, 56px); line-height: 1; letter-spacing: -.04em; }
-    h2 { margin-top: 32px; font-size: 22px; line-height: 1.2; color: var(--primary); }
-    p, li { color: var(--muted); }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 8px; }
-    .lead { font-size: 18px; max-width: 720px; }
-    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: rgba(167,139,250,.14); border: 1px solid rgba(167,139,250,.28); color: var(--primary); font-size: 13px; font-weight: 900; margin-bottom: 18px; }
-    footer { margin-top: 28px; color: var(--faint); font-size: 13px; text-align: center; }
-    @media (max-width: 640px) { header { align-items: flex-start; flex-direction: column; } }
-  </style>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <div class="wrap">
     <header>
       <a class="brand" href="../">
-        <span class="logo">L</span>
-        <span><strong style="display:block;color:var(--text)">Lumina</strong><span style="color:var(--muted);font-size:13px">App de estudos</span></span>
+        <img class="logo-png" src="../assets/app_icon.png" alt="Lumina Logo">
+        <span class="brand-text">
+          <strong>Lumina</strong>
+          <span>App de estudos</span>
+        </span>
       </a>
       <nav>
         <a href="../">Download</a>
+        <a href="../preview/">Preview</a>
+        <a href="../tutoriais/">Tutoriais</a>
         <a href="../testar/">Teste Windows</a>
-        <a href="../privacidade/">Privacidade</a>
-        <a href="../termos/">Termos</a>
         <a href="mailto:luminaestudos.app@gmail.com">Suporte</a>
       </nav>
     </header>
 
-    <main>
-      <span class="pill">Contrato de Serviço</span>
-      <h1>Termos de Uso</h1>
-      <p>Última atualização: 20 de maio de 2026</p>
+    <main class="legal-container reveal">
+      <div class="legal-card">
+        <span class="pill">Contrato de Serviço</span>
+        <h1>Termos de Uso</h1>
+        <p>Última atualização: 20 de maio de 2026</p>
 
-      <p class="lead">Bem-vindo ao <strong>Lumina</strong>. Ao acessar ou utilizar o aplicativo, você concorda com estes Termos de Uso. Leia este documento com atenção.</p>
+        <p class="lead">Bem-vindo ao <strong>Lumina</strong>. Ao acessar ou utilizar o aplicativo, você concorda em se submeter integralmente a estes Termos de Uso. Leia este documento com atenção.</p>
 
-      <h2>1. Definição do Serviço</h2>
-      <p>O Lumina é um aplicativo de apoio, planejamento e otimização de estudos, com ferramentas para organização de conteúdos, sessões de foco, registros de progresso, revisões e questões.</p>
-      <p><strong>Isenção de garantias:</strong> o Lumina é uma ferramenta de suporte organizacional e educacional. O aplicativo não garante aprovação em concurso, vestibular, ENEM, exame da OAB ou qualquer avaliação acadêmica ou profissional.</p>
+        <h2>1. Definição do Serviço</h2>
+        <p>O Lumina é um aplicativo de apoio, planejamento e otimização de estudos, com ferramentas para organização de conteúdos, sessões de foco, registros de progresso, revisões e questões.</p>
+        <p><strong>Isenção de garantias:</strong> o Lumina é uma ferramenta de suporte organizacional e educacional. O aplicativo não garante aprovação em concurso, vestibular, ENEM, exame da OAB ou qualquer avaliação acadêmica ou profissional.</p>
 
-      <h2>2. Elegibilidade e Cadastro</h2>
-      <p>O Lumina destina-se principalmente a maiores de 18 anos. Estudantes menores de idade podem utilizar o app para fins escolares, ENEM ou vestibulares com autorização e supervisão de pais ou responsáveis legais.</p>
-      <p><strong>Segurança da conta:</strong> ao criar uma conta, você se compromete a fornecer informações verdadeiras e atualizadas e a manter suas credenciais em sigilo.</p>
+        <h2>2. Elegibilidade e Cadastro</h2>
+        <p>O Lumina destina-se principalmente a maiores de 18 anos. Estudantes menores de idade podem utilizar o app para fins escolares, ENEM ou vestibulares com autorização e supervisão de pais ou responsáveis legais.</p>
+        <p><strong>Segurança da conta:</strong> ao criar uma conta, você se compromete a fornecer informações verdadeiras e atualizadas e a manter suas credenciais em sigilo.</p>
 
-      <h2>3. Planos e Recursos do Lumina</h2>
-      <p>O Lumina pode oferecer diferentes modalidades de uso, como Free, Plus e Pro, com limites e recursos distintos. Esses planos podem incluir diferenças em quantidade de programas, matérias, aulas, questões, histórico, backup, sincronização e recursos avançados.</p>
-      <p><strong>Versão de teste:</strong> enquanto o Lumina estiver em fase de teste fechado ou validação, a tela Premium poderá existir apenas para demonstração, validação de interesse e organização futura dos planos. Nessa fase, nenhum pagamento real será realizado dentro do aplicativo, salvo comunicação expressa em contrário.</p>
-      <p><strong>Plano Free:</strong> oferece acesso básico ao uso local do aplicativo, com limites de conteúdo e sem backup/sincronização em nuvem completa.</p>
-      <p><strong>Planos Plus e Pro:</strong> quando disponibilizados comercialmente, poderão liberar limites maiores, backup/sincronização e recursos avançados, sempre conforme a descrição exibida no aplicativo no momento da contratação.</p>
+        <h2>3. Planos e Recursos do Lumina</h2>
+        <p>O Lumina pode oferecer diferentes modalidades de uso, como Free, Plus e Pro, com limites e recursos distintos. Esses planos podem incluir diferenças em quantidade de programas, matérias, aulas, questões, histórico, backup, sincronização e recursos avançados.</p>
+        <p><strong>Versão de teste:</strong> enquanto o Lumina estiver em fase de teste fechado ou validação, a tela Premium poderá existir apenas para demonstração, validação de interesse e organização futura dos planos. Nessa fase, nenhum pagamento real será realizado dentro do aplicativo, salvo comunicação expressa em contrário.</p>
+        <p><strong>Plano Free:</strong> oferece acesso básico ao uso local do aplicativo, com limites de conteúdo e sem backup/sincronização em nuvem completa.</p>
+        <p><strong>Planos Plus e Pro:</strong> quando disponibilizados comercialmente, poderão liberar limites maiores, backup/sincronização e recursos avançados, sempre conforme a descrição exibida no aplicativo no momento da contratação.</p>
 
-      <h2>4. Cobrança, Renovação e Cancelamento</h2>
-      <p>No estágio atual de teste, o Lumina pode não ter cobrança real ativa dentro do aplicativo. Caso assinaturas pagas sejam disponibilizadas futuramente, as condições de preço, ciclo de cobrança, renovação, cancelamento e benefícios serão apresentadas de forma clara antes da contratação.</p>
-      <p>Quando a cobrança for realizada por lojas de aplicativos, como Google Play ou Apple App Store, a assinatura, renovação e cancelamento seguirão as regras e ferramentas da respectiva loja. O usuário deverá gerenciar o cancelamento diretamente pela loja em que a compra foi realizada.</p>
-      <p>Caso a liberação de acesso Premium ocorra de forma manual durante testes ou venda controlada, as condições específicas serão informadas diretamente ao usuário no momento da contratação.</p>
+        <h2>4. Cobrança, Renovação e Cancelamento</h2>
+        <p>No estágio atual de teste, o Lumina pode não ter cobrança real ativa dentro do aplicativo. Caso assinaturas pagas sejam disponibilizadas futuramente, as condições de preço, ciclo de cobrança, renovação, cancelamento e benefícios serão apresentadas de forma clara antes da contratação.</p>
+        <p>Quando a cobrança for realizada por lojas de aplicativos, como Google Play ou Apple App Store, a assinatura, renovação e cancelamento seguirão as regras e ferramentas da respectiva loja. O usuário deverá gerenciar o cancelamento diretamente pela loja em que a compra foi realizada.</p>
+        <p>Caso a liberação de acesso Premium ocorra de forma manual durante testes ou venda controlada, as condições específicas serão informadas diretamente ao usuário no momento da contratação.</p>
 
-      <h2>5. Reembolso e Direito de Arrependimento</h2>
-      <p>Quando houver contratação paga do Lumina, o usuário poderá ter direito ao arrependimento ou reembolso conforme a legislação aplicável e as regras da plataforma utilizada para a compra.</p>
-      <p>Compras realizadas por lojas de aplicativos deverão seguir o procedimento de reembolso da respectiva loja. Em liberações manuais ou vendas controladas, as condições de reembolso serão informadas no momento da contratação.</p>
+        <h2>5. Reembolso e Direito de Arrependimento</h2>
+        <p>Quando houver contratação paga do Lumina, o usuário poderá ter direito ao arrependimento ou reembolso conforme a legislação aplicável e as regras da plataforma utilizada para a compra.</p>
+        <p>Compras realizadas por lojas de aplicativos deverão seguir o procedimento de reembolso da respectiva loja. Em liberações manuais ou vendas controladas, as condições de reembolso serão informadas no momento da contratação.</p>
 
-      <h2>6. Propriedade Intelectual e Licença de Conteúdo</h2>
-      <p>A estrutura visual, marca, códigos, algoritmos, logotipos e materiais institucionais do Lumina são protegidos por direitos autorais e propriedade intelectual.</p>
-      <p>Conteúdos cadastrados voluntariamente pelo usuário, como questões, resumos e anotações, continuam pertencendo ao usuário. Você autoriza o Lumina a hospedar, armazenar, transmitir e sincronizar esses dados apenas para viabilizar o funcionamento do serviço em sua conta.</p>
+        <h2>6. Propriedade Intelectual e Licença</h2>
+        <p>A estrutura visual, marca, códigos, algoritmos, logotipos e materiais institucionais do Lumina são protegidos por direitos autorais e propriedade intelectual.</p>
+        <p>Conteúdos cadastrados voluntariamente pelo usuário, como questões, resumos e anotações, continuam pertencendo ao usuário. Você autoriza o Lumina a hospedar, armazenar, transmitir e sincronizar esses dados apenas para viabilizar o funcionamento do serviço em sua conta.</p>
 
-      <h2>7. Uso Aceitável e Proibições</h2>
-      <p>Você concorda em não:</p>
-      <ul>
-        <li>Tentar burlar, desativar ou violar mecanismos de segurança ou limitações de planos do aplicativo;</li>
-        <li>Realizar engenharia reversa, descompilação ou desmontagem do aplicativo;</li>
-        <li>Utilizar scripts, robôs ou crawlers para extrair dados ou simular uso do app;</li>
-        <li>Cadastrar conteúdo ilícito, ofensivo, difamatório ou que viole direitos de terceiros.</li>
-      </ul>
+        <h2>7. Uso Aceitável e Proibições</h2>
+        <p>Você concorda em não:</p>
+        <ul>
+          <li>Tentar burlar, desativar ou violar mecanismos de segurança ou limitações de planos do aplicativo;</li>
+          <li>Realizar engenharia reversa, descompilação ou desmontagem do aplicativo;</li>
+          <li>Utilizar scripts, robôs ou crawlers para extrair dados ou simular uso do app;</li>
+          <li>Cadastrar conteúdo ilícito, ofensivo, difamatório ou que viole direitos de terceiros.</li>
+        </ul>
 
-      <h2>8. Limitação de Responsabilidade</h2>
-      <p>Na extensão máxima permitida pela legislação aplicável, o Lumina é fornecido "como está" e "conforme disponível". Não garantimos que o serviço será ininterrupto, livre de erros temporários ou imune a falhas de dispositivo, rede ou infraestrutura.</p>
+        <h2>8. Limitação de Responsabilidade</h2>
+        <p>Na extensão máxima permitida pela legislação aplicável, o Lumina é fornecido "como está" e "conforme disponível". Não garantimos que o serviço será ininterrupto, livre de erros temporários ou imune a falhas de dispositivo, rede ou infraestrutura.</p>
 
-      <h2>9. Rescisão e Exclusão de Conta</h2>
-      <p>Você pode encerrar sua relação com o Lumina a qualquer momento, desinstalando o app ou excluindo permanentemente sua conta e dados nas configurações do aplicativo.</p>
-      <p>O Lumina poderá suspender ou rescindir o acesso em caso de descumprimento destes Termos ou suspeita fundada de fraude, sem prejuízo de medidas legais cabíveis.</p>
+        <h2>9. Rescisão e Exclusão de Conta</h2>
+        <p>Você pode encerrar sua relação com o Lumina a qualquer momento, desinstalando o app ou excluindo permanentemente sua conta e dados nas configurações do aplicativo.</p>
+        <p>O Lumina poderá suspender ou rescindir o acesso em caso de descumprimento destes Termos ou suspeita fundada de fraude, sem prejuízo de medidas legais cabíveis.</p>
 
-      <h2>10. Legislação Aplicável e Foro</h2>
-      <p>Estes Termos de Uso são regidos e interpretados conforme as leis da República Federativa do Brasil. Eventuais controvérsias serão tratadas conforme a legislação brasileira aplicável, respeitados os direitos do consumidor e as regras de competência previstas em lei.</p>
+        <h2>10. Legislação Aplicável e Foro</h2>
+        <p>Estes Termos de Uso são regidos e interpretados conforme as leis da República Federativa do Brasil. Eventuais controvérsias serão tratadas conforme a legislação brasileira aplicável, respeitados os direitos do consumidor e as regras de competência previstas em lei.</p>
 
-      <h2>11. Contato e Suporte</h2>
-      <p>Se você tiver alguma dúvida sobre estes Termos de Uso ou precisar de suporte, entre em contato:</p>
-      <p>E-mail: <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a></p>
+        <h2>11. Contato e Suporte</h2>
+        <p>Se você tiver alguma dúvida sobre estes Termos de Uso ou precisar de suporte, entre em contato:</p>
+        <p>E-mail: <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a></p>
+      </div>
     </main>
-    <footer>Lumina Estudos — Felipe Martins Araruna — luminaestudos.app@gmail.com</footer>
+
+    <footer style="margin-top: 48px;">
+      <span>Lumina Estudos — Felipe Martins Araruna</span>
+      <div class="footer-badge-group">
+        <a class="footer-badge" href="../privacidade/">Privacidade</a>
+        <a class="footer-badge" href="../termos/">Termos de Uso</a>
+      </div>
+      <span><a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a></span>
+    </footer>
   </div>
+
+  <script src="../animation.js"></script>
 </body>
 </html>
