@@ -32,12 +32,21 @@
       <!-- Hero Section -->
       <section class="hero reveal">
         <div class="entrance-stagger-parent">
-          <span class="eyebrow"><span class="status-dot pulsing"></span>Acesso beta para Windows</span>
+          <span class="eyebrow" id="hero-eyebrow"><span class="status-dot pulsing"></span>Acesso beta — Windows & Android</span>
           <h1>Lumina Estudos</h1>
-          <p class="lead">Instale o Lumina Windows beta pelo instalador oficial. Ele preserva o version gate remoto usado pelo app e permite atualizar a instalação existente quando uma nova build for publicada.</p>
+          <p class="lead" id="hero-lead">Obtenha a build de testes oficial do Lumina. Suporte nativo para Windows (com atualizações automáticas via Velopack) e distribuição APK direta para Android.</p>
           <div class="actions">
-            <a class="button primary" id="installer-link" href="downloads/windows/LuminaSetup.exe">Baixar Lumina para Windows</a>
-            <a class="button secondary" id="manifest-link" href="downloads/windows/manifest.json">Ver manifesto da versão</a>
+            <!-- Botão Primário Windows (PC) -->
+            <a class="button primary" id="installer-link" href="downloads/windows/LuminaSetup.exe">Baixar para Windows</a>
+            
+            <!-- Botão Primário Android (Celular) — Fica oculto no PC e vira primário no Celular -->
+            <a class="button primary" id="android-link-primary" href="downloads/android/Lumina.apk" style="display: none;">Baixar para Android (.apk)</a>
+            
+            <!-- Botão Secundário Android (PC) — Fica visível no PC como alternativa secundária -->
+            <a class="button secondary" id="android-link-secondary" href="downloads/android/Lumina.apk">Baixar Android (.apk)</a>
+            
+            <!-- Botão Secundário Manifesto Windows (Oculto no celular se Android ativo, visível no PC) -->
+            <a class="button secondary" id="manifest-link" href="downloads/windows/manifest.json">Manifesto Windows</a>
           </div>
         </div>
 
@@ -54,8 +63,8 @@
           <div class="terminal-body">
             <div class="release-line"><strong>Canal</strong><span id="release-channel">beta</span></div>
             <div class="release-line"><strong>Versão</strong><span id="release-version">Aguardando publicação</span></div>
-            <div class="release-line"><strong>Instalador</strong><span>downloads/windows/LuminaSetup.exe</span></div>
-            <div class="release-line"><strong>Atualizações</strong><span>Version gate ativo com link automático</span></div>
+            <div class="release-line"><strong>Instalador</strong><span id="terminal-installer-label">downloads/windows/LuminaSetup.exe</span></div>
+            <div class="release-line"><strong>Atualizações</strong><span id="terminal-updates-label">Version gate ativo com link automático</span></div>
             <div class="release-line"><strong>Status</strong><span class="warn">Somente testers convidados</span></div>
           </div>
         </aside>
@@ -138,27 +147,89 @@
   </div>
 
   <script>
-    async function loadWindowsManifest() {
-      try {
-        const response = await fetch('downloads/windows/manifest.json', { cache: 'no-store' });
-        if (!response.ok) return;
-
-        const manifest = await response.json();
-        if (manifest.velopackVersion) {
-          document.getElementById('release-version').textContent = manifest.velopackVersion;
+    async function loadManifest() {
+      // Detecta se o usuário está acessando pelo celular/Android ou simulador mobile
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      
+      const winBtn = document.getElementById("installer-link");
+      const androidBtn = document.getElementById("android-link-primary");
+      const androidAltBtn = document.getElementById("android-link-secondary");
+      const manifestLink = document.getElementById("manifest-link");
+      
+      const isMobileAndroid = isAndroid || (isMobile && !/iPhone|iPad|iPod/i.test(navigator.userAgent));
+      
+      if (isMobileAndroid) {
+        // Se for celular Android, torna o botão do APK primário e o do Windows secundário
+        if (winBtn) {
+          winBtn.classList.remove("primary");
+          winBtn.classList.add("secondary");
+          winBtn.textContent = "Baixar para Windows";
         }
-        if (manifest.channel) {
-          document.getElementById('release-channel').textContent = manifest.channel;
+        
+        if (androidBtn) androidBtn.style.display = "inline-flex";
+        if (androidAltBtn) androidAltBtn.style.display = "none";
+        if (manifestLink) manifestLink.style.display = "none";
+        
+        // Modifica textos do hero para destacar Android
+        const eyebrow = document.getElementById("hero-eyebrow");
+        if (eyebrow) eyebrow.innerHTML = '<span class="status-dot pulsing"></span>Acesso beta para Android';
+        const leadText = document.getElementById("hero-lead");
+        if (leadText) leadText.textContent = "Instale a build oficial do Lumina para dispositivos Android diretamente através do arquivo APK. Suas informações locais permanecem preservadas no banco do aparelho.";
+        
+        // Modifica a aparência do terminal para Android
+        const termTitle = document.querySelector(".terminal-title");
+        if (termTitle) termTitle.textContent = "Lumina Android Release";
+        const termOk = document.querySelector(".terminal-top .ok");
+        if (termOk) termOk.textContent = "APK";
+        const termInst = document.getElementById("terminal-installer-label");
+        if (termInst) termInst.textContent = "downloads/android/Lumina.apk";
+        const termUpd = document.getElementById("terminal-updates-label");
+        if (termUpd) termUpd.textContent = "Distribuição direta via APK";
+        
+        // Carrega manifesto do Android
+        try {
+          const response = await fetch('downloads/android/manifest.json', { cache: 'no-store' });
+          if (!response.ok) return;
+          const manifest = await response.json();
+          if (manifest.versionName) {
+            document.getElementById('release-version').textContent = manifest.versionName + ` (Build ${manifest.buildNumber || 1})`;
+          }
+          if (manifest.channel) {
+            document.getElementById('release-channel').textContent = manifest.channel;
+          }
+          if (manifest.apkFileName && androidBtn) {
+            androidBtn.href = 'downloads/android/' + manifest.apkFileName;
+          }
+        } catch (error) {
+          console.error("Erro ao carregar manifesto do Android: ", error);
         }
-        if (manifest.installerUrl) {
-          document.getElementById('installer-link').href = manifest.installerUrl;
+      } else {
+        // Se for PC ou iOS, mantém Windows como primário e Android como secundário
+        if (androidBtn) androidBtn.style.display = "none";
+        if (androidAltBtn) androidAltBtn.style.display = "inline-flex";
+        
+        // Carrega manifesto do Windows
+        try {
+          const response = await fetch('downloads/windows/manifest.json', { cache: 'no-store' });
+          if (!response.ok) return;
+          const manifest = await response.json();
+          if (manifest.velopackVersion) {
+            document.getElementById('release-version').textContent = manifest.velopackVersion;
+          }
+          if (manifest.channel) {
+            document.getElementById('release-channel').textContent = manifest.channel;
+          }
+          if (manifest.installerUrl && winBtn) {
+            winBtn.href = manifest.installerUrl;
+          }
+        } catch (error) {
+          if (manifestLink) manifestLink.setAttribute('aria-disabled', 'true');
         }
-      } catch (error) {
-        document.getElementById('manifest-link').setAttribute('aria-disabled', 'true');
       }
     }
 
-    loadWindowsManifest();
+    loadManifest();
   </script>
   <script src="./animation.js"></script>
   <script>

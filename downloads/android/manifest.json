@@ -1,0 +1,12 @@
+{
+    "versionName":  "0.39.10",
+    "buildNumber":  7,
+    "apkFileName":  "Lumina.apk",
+    "apkUrl":  "https://www.luminaestudos.com.br/downloads/android/Lumina.apk",
+    "sha256":  "f9c733e63162ea7f7b87fda9b4dc6bb3422bfa49a90db721a4d42fb0e40878ba",
+    "generatedAt":  "2026-05-29T20:38:15Z",
+    "channel":  "beta",
+    "platform":  "android",
+    "distribution":  "apk",
+    "packageId":  "com.luminaestudos.app"
+}

@@ -17,7 +17,10 @@ foreach ($directory in $requiredDirectories) {
 }
 
 $index = Get-Content "index.html" -Raw
+$style = Get-Content "style.css" -Raw
 $testerPage = Get-Content "testar\index.html" -Raw
+$previewPage = Get-Content "preview\index.html" -Raw
+$tutorialsPage = Get-Content "tutoriais\index.html" -Raw
 $privacyPage = Get-Content "privacidade\index.html" -Raw
 $termsPage = Get-Content "termos\index.html" -Raw
 
@@ -25,11 +28,16 @@ if ($index -notmatch 'href="downloads/windows/LuminaSetup\.exe"') {
   throw "index.html must link to downloads/windows/LuminaSetup.exe."
 }
 
-if ($index -notmatch '--primary:\s*#a78bfa' -or $index -notmatch '--primary-strong:\s*#8b5cf6') {
-  throw "index.html must use Lumina purple tokens."
+$designText = "$index`n$style"
+if ($designText -notmatch '--primary:\s*#a78bfa') {
+  throw "Site styles must define the Lumina primary purple token."
 }
 
-$publicPages = @($index, $testerPage, $privacyPage, $termsPage)
+if ($designText -notmatch '--primary-strong:\s*#(8b5cf6|7c3aed)') {
+  throw "Site styles must define a Lumina strong purple token."
+}
+
+$publicPages = @($index, $testerPage, $previewPage, $tutorialsPage, $privacyPage, $termsPage)
 
 foreach ($text in $publicPages) {
   foreach ($label in @('>Início<', '>Quero testar<', '>Beta fechado<')) {
@@ -65,8 +73,10 @@ $forbidden = @(
 
 $files = @(
   "index.html",
-  "README.md"
-) + @(Get-ChildItem -Recurse -File docs, downloads -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName })
+  "README.md",
+  "style.css",
+  "animation.js"
+) + @(Get-ChildItem -Recurse -File docs, downloads, preview, privacidade, termos, testar, tutoriais -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName })
 
 foreach ($file in $files) {
   $text = Get-Content $file -Raw
