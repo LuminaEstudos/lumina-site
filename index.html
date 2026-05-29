@@ -5,22 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lumina Windows Beta</title>
   <meta name="description" content="Baixe o Lumina Windows beta pelo site oficial.">
-  <meta name="theme-color" content="#101828">
+  <meta name="theme-color" content="#7c3aed">
   <style>
     :root {
       color-scheme: dark;
-      --bg: #0b1020;
-      --panel: #111827;
-      --panel-soft: #172033;
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --faint: #94a3b8;
+      --bg: #080711;
+      --panel: #12101f;
+      --panel-soft: #1b1830;
+      --text: #f5f3ff;
+      --muted: #cfc8ff;
+      --faint: #958daf;
       --line: rgba(255,255,255,.14);
-      --blue: #38bdf8;
-      --blue-strong: #0284c7;
-      --green: #22c55e;
+      --primary: #a78bfa;
+      --primary-strong: #8b5cf6;
+      --accent: #34d399;
       --amber: #f59e0b;
-      --red: #fb7185;
     }
 
     * { box-sizing: border-box; }
@@ -28,12 +27,15 @@
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(124,58,237,.30), transparent 28rem),
+        radial-gradient(circle at 82% 18%, rgba(167,139,250,.16), transparent 26rem),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    a { color: var(--blue); text-decoration: none; }
+    a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .wrap { max-width: 1120px; margin: 0 auto; padding: 24px 18px 52px; }
@@ -56,12 +58,13 @@
     .logo {
       width: 42px;
       height: 42px;
-      border-radius: 8px;
+      border-radius: 10px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
-      color: #07111f;
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: white;
       font-weight: 900;
+      box-shadow: 0 12px 40px rgba(124,58,237,.26);
     }
 
     nav { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
@@ -84,7 +87,7 @@
       align-items: center;
       gap: 8px;
       margin-bottom: 18px;
-      color: var(--green);
+      color: var(--primary);
       font-size: 13px;
       font-weight: 850;
       text-transform: uppercase;
@@ -127,13 +130,14 @@
     }
 
     .button.primary {
-      color: #04111f;
-      background: var(--blue);
-      border-color: rgba(56,189,248,.8);
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      border-color: rgba(167,139,250,.72);
+      box-shadow: 0 18px 46px rgba(124,58,237,.30);
     }
 
     .button.primary:hover {
-      background: #7dd3fc;
+      background: linear-gradient(135deg, #c4b5fd, var(--primary));
       text-decoration: none;
     }
 
@@ -152,7 +156,7 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       overflow: hidden;
-      background: #090d18;
+      background: rgba(8,7,17,.92);
       box-shadow: 0 24px 90px rgba(0,0,0,.34);
     }
 
@@ -162,7 +166,7 @@
       justify-content: space-between;
       gap: 12px;
       padding: 12px 14px;
-      background: #151d2f;
+      background: rgba(27,24,48,.92);
       border-bottom: 1px solid var(--line);
       color: var(--faint);
       font-size: 13px;
@@ -174,7 +178,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--green);
+      background: var(--primary);
       margin-right: 8px;
     }
 
@@ -191,7 +195,7 @@
     }
 
     .release-line strong { color: var(--text); }
-    .ok { color: var(--green); font-weight: 850; }
+    .ok { color: var(--accent); font-weight: 850; }
     .warn { color: var(--amber); font-weight: 850; }
 
     .section {
@@ -238,8 +242,8 @@
       height: 32px;
       margin-bottom: 14px;
       border-radius: 8px;
-      background: rgba(56,189,248,.15);
-      color: var(--blue);
+      background: rgba(167,139,250,.16);
+      color: var(--primary);
       font-weight: 900;
     }
 
@@ -280,12 +284,12 @@
         <span class="logo">L</span>
         <span>
           <strong style="display:block;color:var(--text)">Lumina</strong>
-          <span style="color:var(--muted);font-size:13px">Windows beta</span>
+          <span style="color:var(--muted);font-size:13px">App de estudos</span>
         </span>
       </a>
       <nav>
         <a class="active" href="./">Download</a>
-        <a href="./testar/">Beta fechado</a>
+        <a href="./testar/">Teste Windows</a>
         <a href="./privacidade/">Privacidade</a>
         <a href="./termos/">Termos</a>
         <a href="mailto:luminaestudos.app@gmail.com">Suporte</a>
@@ -295,7 +299,7 @@
     <main>
       <section class="hero">
         <div>
-          <span class="eyebrow"><span class="status-dot"></span>Beta fechado para Windows</span>
+          <span class="eyebrow"><span class="status-dot"></span>Acesso beta para Windows</span>
           <h1>Lumina</h1>
           <p class="lead">Instale o Lumina Windows beta pelo arquivo App Installer oficial. Ele mantém o app preparado para atualizações automáticas e preserva o version gate remoto usado pelo Lumina.</p>
           <div class="actions">
@@ -314,7 +318,7 @@
             <div class="release-line"><strong>Versão</strong><span id="release-version">Aguardando publicação</span></div>
             <div class="release-line"><strong>Instalador</strong><span>downloads/windows/lumina.appinstaller</span></div>
             <div class="release-line"><strong>Atualizações</strong><span>Checagem pelo App Installer e version gate no app</span></div>
-            <div class="release-line"><strong>Status</strong><span class="warn">Acesso somente para testers convidados</span></div>
+            <div class="release-line"><strong>Status</strong><span class="warn">Somente testers convidados</span></div>
           </div>
         </aside>
       </section>
@@ -362,7 +366,7 @@
       </section>
 
       <section class="section">
-        <h2>Beta fechado</h2>
+        <h2>Acesso de teste</h2>
         <p>Esta distribuição é destinada apenas a testers convidados. O Lumina ainda está em validação e pode receber mudanças frequentes de versão, instalação e regras de compatibilidade.</p>
         <div class="actions">
           <a class="button secondary" href="./privacidade/">Política de privacidade</a>

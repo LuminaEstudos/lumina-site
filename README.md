@@ -5,7 +5,7 @@ Site oficial, legal e de download beta do Lumina.
 ## Paginas
 
 - Download Windows beta
-- Beta fechado
+- Teste Windows
 - Privacidade
 - Termos
 

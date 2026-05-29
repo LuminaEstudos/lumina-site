@@ -5,8 +5,8 @@
   "msixFileName": "lumina_0.39.4.4.msix",
   "msixUrl": "https://www.luminaestudos.com.br/downloads/windows/versions/lumina_0.39.4.4.msix",
   "appInstallerUrl": "https://www.luminaestudos.com.br/downloads/windows/lumina.appinstaller",
-  "sha256": "62ad28d99ac1f4ee95b2cd7a23a5ac24b12a9770452fa0d0297f681e82b41211",
-  "generatedAt": "2026-05-29T02:54:28Z",
+  "sha256": "e5ecb1ea362444fe28fc9cae9c0c13e96c548afcae020891d78d7c39f25b7dca",
+  "generatedAt": "2026-05-29T04:25:04Z",
   "channel": "beta",
   "platform": "windows"
 }

@@ -171,8 +171,8 @@ function LuminaPage {
 '        </span>',
 '      </a>',
 '      <nav>',
-"        <a href=""$home"">Inicio</a>",
-"        <a class=""nav-cta"" href=""$testar"">Quero testar</a>",
+"        <a href=""$home"">Download</a>",
+"        <a class=""nav-cta"" href=""$testar"">Teste Windows</a>",
 "        <a href=""$privacidade"">Privacidade</a>",
 "        <a href=""$termos"">Termos</a>",
 '        <a href="mailto:luminaestudos.app@gmail.com">Suporte</a>',
@@ -198,11 +198,11 @@ $homeBody = @(
 '    <section class="hero">',
 '      <div class="hero-grid">',
 '        <div>',
-'          <span class="pill">Teste fechado gratuito</span>',
+'          <span class="pill">Acesso beta</span>',
 '          <h1>Estude com mais foco, clareza e ritmo.</h1>',
 '          <p class="lead">Lumina e um app de estudos com materias, aulas, questoes, revisoes, Pomodoro, dashboard e uma experiencia escura pensada para longos periodos de estudo.</p>',
 '          <div class="actions">',
-'            <a class="button primary" href="./testar/">Quero testar o Lumina</a>',
+'            <a class="button primary" href="downloads/windows/lumina.appinstaller">Baixar Lumina para Windows</a>',
 '            <a class="button secondary" href="mailto:luminaestudos.app@gmail.com?subject=Quero%20testar%20o%20Lumina&body=Ola!%20Quero%20testar%20o%20Lumina.%0A%0AMeu%20email%20para%20convite%20Firebase%20e:%0A%0AMeu%20celular%20e:%20Android">Pedir convite por email</a>',
 '          </div>',
 '        </div>',
@@ -233,13 +233,14 @@ $homeBody = @(
 
 $testBody = @(
 '    <main>',
-'      <span class="pill">Teste fechado</span>',
-'      <h1>Quero testar o Lumina</h1>',
-'      <p class="lead">O Lumina ainda esta em fase de teste fechado. Voce pode pedir acesso e receber uma build Android pelo Firebase App Distribution.</p>',
+'      <span class="pill">Acesso beta</span>',
+'      <h1>Teste Windows do Lumina</h1>',
+'      <p class="lead">Testers convidados podem instalar a versao Windows pelo site oficial. O Android continua por convite separado enquanto o beta e validado.</p>',
 '',
 '      <div class="actions">',
-'        <a class="button primary" href="mailto:luminaestudos.app@gmail.com?subject=Quero%20testar%20o%20Lumina&body=Ola!%20Quero%20testar%20o%20Lumina.%0A%0AMeu%20email%20para%20convite%20Firebase%20e:%0A%0AMeu%20celular%20e:%20Android%0A%0AObservacao:">Pedir convite de teste</a>',
-'        <a class="button secondary" href="../privacidade/">Ler privacidade</a>',
+'        <a class="button primary" href="../">Baixar Lumina para Windows</a>',
+'        <a class="button secondary" href="mailto:luminaestudos.app@gmail.com?subject=Solicitar%20acesso%20Android%20Lumina&body=Ola!%20Quero%20testar%20o%20Lumina%20no%20Android.%0A%0AMeu%20email%20para%20convite%20Firebase%20e:%0A%0AObservacao:">Solicitar acesso Android</a>',
+'        <a class="button secondary" href="../privacidade/">Privacidade</a>',
 '      </div>',
 '',
 '      <h2>Como funciona</h2>',
@@ -270,8 +271,8 @@ $testBody = @(
 '    </main>'
 )
 
-Write-Utf8File "index.html" (LuminaPage -Title "Inicio" -BodyLines $homeBody -BasePrefix ".")
-Write-Utf8File "testar\index.html" (LuminaPage -Title "Quero testar" -BodyLines $testBody -BasePrefix "..")
+Write-Utf8File "index.html" (LuminaPage -Title "Download" -BodyLines $homeBody -BasePrefix ".")
+Write-Utf8File "testar\index.html" (LuminaPage -Title "Teste Windows" -BodyLines $testBody -BasePrefix "..")
 
 # Atualiza nav nas paginas legais existentes de forma simples.
 $internalFiles = @("privacidade\index.html", "termos\index.html")
@@ -280,8 +281,8 @@ foreach ($file in $internalFiles) {
 
   if (!$content.Contains('href="../testar/"')) {
     $content = $content.Replace(
-      '<a href="../">Inicio</a>',
-      '<a href="../">Inicio</a>' + "`r`n" + '        <a href="../testar/">Quero testar</a>'
+      '<a href="../">Download</a>',
+      '<a href="../">Download</a>' + "`r`n" + '        <a href="../testar/">Teste Windows</a>'
     )
   }
 
@@ -295,8 +296,8 @@ $readme = @(
 '',
 '## Paginas',
 '',
-'- Inicio',
-'- Quero testar',
+'- Download',
+'- Teste Windows',
 '- Privacidade',
 '- Termos',
 '',
