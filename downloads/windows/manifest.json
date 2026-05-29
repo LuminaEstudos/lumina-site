@@ -1,15 +1,15 @@
 {
-  "versionName": "0.39.4",
-  "buildNumber": 4,
-  "velopackVersion": "0.39.4-beta.4",
-  "installerFileName": "LuminaSetup.exe",
-  "installerUrl": "https://www.luminaestudos.com.br/downloads/windows/LuminaSetup.exe",
-  "releasesUrl": "https://www.luminaestudos.com.br/downloads/windows/releases",
-  "sha256": "95be4f4988af9c6cfddc8533c375e0c4d2273ce0021b72b2e0b9e05e7b8c7643",
-  "generatedAt": "2026-05-29T13:39:53Z",
-  "channel": "beta",
-  "platform": "windows",
-  "distribution": "velopack",
-  "packId": "LuminaEstudos.Lumina",
-  "entryExecutable": "app_estudos.exe"
+    "versionName":  "0.39.8",
+    "buildNumber":  5,
+    "velopackVersion":  "0.39.8-beta.5",
+    "installerFileName":  "LuminaSetup.exe",
+    "installerUrl":  "https://www.luminaestudos.com.br/downloads/windows/LuminaSetup.exe",
+    "releasesUrl":  "https://www.luminaestudos.com.br/downloads/windows/releases",
+    "sha256":  "e6aa4e1aa184106eaaf5bda883a4b27252eb2a102def43eace10712de436e00a",
+    "generatedAt":  "2026-05-29T14:05:46Z",
+    "channel":  "beta",
+    "platform":  "windows",
+    "distribution":  "velopack",
+    "packId":  "LuminaEstudos.Lumina",
+    "entryExecutable":  "app_estudos.exe"
 }
