@@ -5,9 +5,11 @@
   "installerFileName": "LuminaSetup.exe",
   "installerUrl": "https://www.luminaestudos.com.br/downloads/windows/LuminaSetup.exe",
   "releasesUrl": "https://www.luminaestudos.com.br/downloads/windows/releases",
-  "sha256": "pending",
-  "generatedAt": "pending",
+  "sha256": "95be4f4988af9c6cfddc8533c375e0c4d2273ce0021b72b2e0b9e05e7b8c7643",
+  "generatedAt": "2026-05-29T13:39:53Z",
   "channel": "beta",
   "platform": "windows",
-  "distribution": "velopack"
+  "distribution": "velopack",
+  "packId": "LuminaEstudos.Lumina",
+  "entryExecutable": "app_estudos.exe"
 }
