@@ -113,9 +113,18 @@ document.addEventListener("DOMContentLoaded", () => {
             if (link.getAttribute("href") === `#${activeId}`) {
               link.classList.add("active");
               
-              // Rolagem horizontal suave no menu mobile
+              // Rolagem horizontal suave no menu mobile (evitando pulos verticais indesejados da janela!)
               if (window.innerWidth <= 960) {
-                link.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+                const nav = link.closest(".tutorial-nav");
+                if (nav) {
+                  const navWidth = nav.offsetWidth;
+                  const linkLeft = link.offsetLeft;
+                  const linkWidth = link.offsetWidth;
+                  nav.scrollTo({
+                    left: linkLeft - (navWidth / 2) + (linkWidth / 2),
+                    behavior: "smooth"
+                  });
+                }
               }
             }
           });
