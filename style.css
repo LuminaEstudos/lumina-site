@@ -51,8 +51,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100%;
 }
 
 body {
@@ -62,7 +60,6 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
-  max-width: 100%;
   position: relative;
 }
 
@@ -1042,19 +1039,6 @@ footer a:hover {
   }
 }
 
-@keyframes reveal-mobile-in {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
 /* Sistema de Entrada Cinematográfica Staggered (Page Load) */
 .js-enabled .entrance-stagger-parent > * {
   opacity: 0;
@@ -1202,41 +1186,6 @@ footer a:hover {
   .tutorial-nav a {
     white-space: nowrap;
     padding: 0;
-  }
-
-  /* Overrides para evitar arrasto horizontal no celular por conta de grandes traduções no eixo X */
-  .js-enabled .reveal-left,
-  .js-enabled .reveal-right {
-    transform: translateY(30px);
-    transition: transform 0.8s var(--ease-premium), opacity 0.8s var(--ease-premium), filter 0.8s var(--ease-premium);
-  }
-  
-  .js-enabled .reveal,
-  .js-enabled .reveal-left,
-  .js-enabled .reveal-right {
-    transform: translateY(30px);
-    filter: blur(8px);
-  }
-
-  .js-enabled .reveal.visible,
-  .js-enabled .reveal-left.visible,
-  .js-enabled .reveal-right.visible {
-    transform: translateY(0);
-    filter: blur(0);
-  }
-
-  @supports (animation-timeline: view()) {
-    .js-enabled .reveal,
-    .js-enabled .reveal-left,
-    .js-enabled .reveal-right {
-      animation-name: reveal-mobile-in !important;
-      animation-range: entry 0% cover 25%;
-    }
-  }
-
-  /* Garante que o sumário lateral do mobile não tente entrar da esquerda, evitando overflow */
-  .js-enabled .tutorial-sidebar {
-    animation: entrance-fade 1.4s var(--ease-premium) 0.3s forwards !important;
   }
 }
 
