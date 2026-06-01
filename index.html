@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lumina Windows Beta - Instalador Oficial</title>
-  <meta name="description" content="Baixe o Lumina Windows beta pelo instalador oficial de forma rápida e segura.">
+  <title>Lumina Estudos - App de estudos, revisão e foco</title>
+  <meta name="description" content="Conheça o Lumina, app de estudos para organizar matérias, aulas, questões, Pomodoro, revisões, progresso e comunidade. Beta fechado com download para testers.">
   <meta name="theme-color" content="#7c3aed">
   <link rel="stylesheet" href="./style.css">
   <script>document.documentElement.classList.add('js-enabled');</script>
@@ -20,118 +20,143 @@
         </span>
       </a>
       <nav>
-        <a class="active" href="./">Download</a>
+        <a class="active" href="./">Inicio</a>
         <a href="./preview/">Preview</a>
         <a href="./tutoriais/">Tutoriais</a>
-        <a href="./testar/">Teste Windows</a>
+        <a class="nav-cta" href="./beta/">Beta</a>
         <a href="mailto:luminaestudos.app@gmail.com">Suporte</a>
       </nav>
     </header>
 
     <main>
-      <!-- Hero Section -->
       <section class="hero reveal">
         <div class="entrance-stagger-parent">
-          <span class="eyebrow" id="hero-eyebrow"><span class="status-dot pulsing"></span>Acesso beta — Windows & Android</span>
+          <span class="eyebrow" id="hero-eyebrow"><span class="status-dot pulsing"></span>beta fechado para amigos e testers</span>
           <h1>Lumina Estudos</h1>
-          <p class="lead" id="hero-lead">Obtenha a build de testes oficial do Lumina. Suporte nativo para Windows (com atualizações automáticas via Velopack) e distribuição APK direta para Android.</p>
+          <p class="lead" id="hero-lead">Organize matérias, aulas, questões, revisões e ciclos de foco em um app criado para acompanhar sua evolução com clareza. O Lumina está em beta fechado, com download liberado apenas para convidados.</p>
           <div class="actions">
-            <!-- Botão Primário Windows (PC) -->
             <a class="button primary" id="installer-link" href="downloads/windows/LuminaSetup.exe">Baixar para Windows</a>
-            
-            <!-- Botão Primário Android (Celular) — Fica oculto no PC e vira primário no Celular -->
             <a class="button primary" id="android-link-primary" href="downloads/android/Lumina.apk" style="display: none;">Baixar para Android (.apk)</a>
-            
-            <!-- Botão Secundário Android (PC) — Fica visível no PC como alternativa secundária -->
             <a class="button secondary" id="android-link-secondary" href="downloads/android/Lumina.apk">Baixar Android (.apk)</a>
-            
-            <!-- Botão Secundário Manifesto Windows (Oculto no celular se Android ativo, visível no PC) -->
-            <a class="button secondary" id="manifest-link" href="downloads/windows/manifest.json">Manifesto Windows</a>
+            <a class="button secondary" href="./beta/">Como participar do beta</a>
           </div>
         </div>
 
-        <aside class="terminal" aria-label="Informações de release">
-          <div class="terminal-top">
-            <div class="window-controls">
-              <div class="dot close"></div>
-              <div class="dot minimize"></div>
-              <div class="dot zoom"></div>
+        <aside class="product-showcase reveal-right" aria-label="Download e versão do Lumina">
+          <div class="screenshot-container">
+            <div class="screenshot-wrapper">
+              <img src="./assets/images/dashboard_geral.png" alt="Dashboard do Lumina">
+              <div class="placeholder-content">
+                <div class="placeholder-icon"></div>
+                <strong>Dashboard Lumina</strong>
+                <p>Resumo visual de foco, revisões e desempenho.</p>
+              </div>
             </div>
-            <span class="terminal-title">Lumina Windows Terminal</span>
-            <span class="ok">Velopack</span>
           </div>
-          <div class="terminal-body">
-            <div class="release-line"><strong>Canal</strong><span id="release-channel">beta</span></div>
-            <div class="release-line"><strong>Versão</strong><span id="release-version">Aguardando publicação</span></div>
-            <div class="release-line"><strong>Instalador</strong><span id="terminal-installer-label">downloads/windows/LuminaSetup.exe</span></div>
-            <div class="release-line"><strong>Atualizações</strong><span id="terminal-updates-label">Version gate ativo com link automático</span></div>
-            <div class="release-line"><strong>Status</strong><span class="warn">Somente testers convidados</span></div>
+          <div class="terminal compact-terminal" aria-label="Informações de release">
+            <div class="terminal-top">
+              <div class="window-controls">
+                <div class="dot close"></div>
+                <div class="dot minimize"></div>
+                <div class="dot zoom"></div>
+              </div>
+              <span class="terminal-title">Lumina Release</span>
+              <span class="ok">Velopack</span>
+            </div>
+            <div class="terminal-body">
+              <div class="release-line"><strong>Canal</strong><span id="release-channel">beta</span></div>
+              <div class="release-line"><strong>Versão</strong><span id="release-version">Aguardando publicação</span></div>
+              <div class="release-line"><strong>Instalador</strong><span id="terminal-installer-label">downloads/windows/LuminaSetup.exe</span></div>
+              <div class="release-line"><strong>Atualizações</strong><span id="terminal-updates-label">Validação remota de versão</span></div>
+              <div class="release-line"><strong>Status</strong><span class="warn">Acesso controlado</span></div>
+            </div>
           </div>
+          <a class="button secondary hidden-link" id="manifest-link" href="downloads/windows/manifest.json">Manifesto Windows</a>
         </aside>
       </section>
 
-      <!-- Grid de Passos -->
       <section class="section">
         <div class="section-header reveal">
-          <h2>Como realizar a instalação</h2>
-          <p class="lead" style="font-size:16px;">Siga o guia rápido abaixo para preparar o aplicativo de estudos no seu dispositivo Windows.</p>
+          <span class="pill">Lançamento planejado</span>
+          <h2>Feito para estudar com rotina, dados e revisão</h2>
+          <p class="lead" style="font-size:16px;">O Lumina combina organização de conteúdo, prática ativa e acompanhamento de desempenho em uma experiência escura e confortável para longos períodos de estudo.</p>
+        </div>
+        <div class="grid">
+          <div class="card reveal-left">
+            <h3>Organização completa</h3>
+            <p>Crie programas de estudo, matérias, aulas, anotações, PDFs, questões e históricos em uma estrutura pensada para concursos, vestibulares e estudos de longo prazo.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Foco e constância</h3>
+            <p>Use Pomodoro, sessões de foco, XP, ofensiva e métricas de tempo para transformar estudo em rotina mensurável.</p>
+          </div>
+          <div class="card reveal-right">
+            <h3>Revisão inteligente</h3>
+            <p>Responda questões, acompanhe erros e acertos e use revisões espaçadas para voltar ao conteúdo no momento certo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hero" style="min-height:auto;">
+        <div class="reveal-left">
+          <span class="eyebrow"><span class="status-dot pulsing"></span>Planos Free, Plus e Pro</span>
+          <h2>Modelo preparado para as lojas oficiais</h2>
+          <p>O beta atual existe para validar estabilidade, usabilidade e interesse. O modelo de lançamento do Lumina inclui plano gratuito e assinaturas Plus/Pro contratadas pelo próprio app quando a distribuição oficial estiver ativa.</p>
+          <div class="notice">
+            <strong>Transparência:</strong> durante o beta fechado, recursos comerciais podem aparecer para validação de experiência. A cobrança direta no app será usada no lançamento conforme disponibilidade das lojas oficiais, provedor de pagamento e comunicação clara no momento da contratação.
+          </div>
+        </div>
+        <div class="pricing-grid reveal-right">
+          <div class="plan-card">
+            <span class="plan-name">Free</span>
+            <strong>Começar bem</strong>
+            <p>Organização local, Pomodoro, dashboard principal, revisão local e limites iniciais de conteúdo.</p>
+          </div>
+          <div class="plan-card highlighted">
+            <span class="plan-name">Plus</span>
+            <strong>Evoluir com segurança</strong>
+            <p>Mais matérias, aulas e questões, estatísticas ampliadas, backup/sync e revisão inteligente.</p>
+          </div>
+          <div class="plan-card strong">
+            <span class="plan-name">Pro</span>
+            <strong>Uso intenso</strong>
+            <p>Limites maiores, histórico completo, relatórios avançados e suporte a rotinas mais complexas.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header reveal">
+          <h2>O que está no beta fechado</h2>
+          <p class="lead" style="font-size:16px;">A distribuição inicial é controlada para amigos e testers convidados. O objetivo é validar o app antes de ampliar a publicação em canais oficiais.</p>
         </div>
         <div class="steps">
           <div class="step reveal-left">
-            <h3>Baixe pelo botão</h3>
-            <p>Use o arquivo executável <code>LuminaSetup.exe</code> servido com segurança por este domínio oficial.</p>
+            <h3>Windows</h3>
+            <p>Instalador oficial via este domínio, com infraestrutura de atualização baseada em manifest e Velopack.</p>
           </div>
           <div class="step reveal">
-            <h3>Abra o instalador</h3>
-            <p>Execute o instalador baixado para criar ou atualizar automaticamente a sua instalação local do Lumina.</p>
+            <h3>Android</h3>
+            <p>APK direto para testers enquanto o canal de loja oficial e a etapa de testes fechados são preparados.</p>
           </div>
           <div class="step reveal-right">
-            <h3>Entre com sua conta</h3>
-            <p>O beta é restrito. Utilize exclusivamente o endereço de e-mail liberado para os seus testes do Lumina.</p>
+            <h3>Conta e dados</h3>
+            <p>Login, dados locais, recursos remotos, Comunidade e sincronização podem depender de validação de versão e disponibilidade do backend.</p>
           </div>
+        </div>
+        <div class="actions reveal">
+          <a class="button primary" href="./beta/">Ver instruções do beta</a>
+          <a class="button secondary" href="./preview/">Explorar telas do app</a>
         </div>
       </section>
 
-      <!-- Dicas e Origem -->
-      <section class="section reveal-right">
-        <div class="section-header">
-          <h2>Se o Windows bloquear o download</h2>
-          <p class="lead" style="font-size:16px;">O Windows SmartScreen pode alertar sobre arquivos executáveis novos de forma preventiva.</p>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h3>Confira a origem</h3>
-            <p>O instalador do app deve vir sempre de <code>www.luminaestudos.com.br</code>. Nunca instale links enviados por terceiros.</p>
-          </div>
-          <div class="card">
-            <h3>Certificado SmartScreen</h3>
-            <p>Durante o período de beta, o Windows pode pedir confirmações adicionais até o instalador ganhar reputação na plataforma.</p>
-          </div>
-          <div class="card">
-            <h3>Suporte Técnico</h3>
-            <p>Caso apareça algum erro impeditivo de instalação, envie um print com os detalhes para <a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a>.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Informações Adicionais -->
-      <section class="section reveal-left">
-        <h2>Atualizações automáticas</h2>
-        <p class="lead" style="margin-bottom: 16px;">O Lumina Windows beta utiliza o release manifest remoto para identificar publicações de builds novas.</p>
-        <p>Se uma atualização for obrigatória, o aplicativo bloqueará temporariamente o login, a sincronização de dados, a aba Comunidade e os recursos remotos até que você baixe o instalador mais recente por este site.</p>
-        <div class="notice">
-          <strong>Atenção:</strong> Se uma atualização for declarada obrigatória, utilize o botão de download acima antes de sincronizar seus dados. Suas informações locais permanecem perfeitamente preservadas no banco de dados local do seu dispositivo.
-        </div>
-      </section>
-
-      <!-- Validação e Acesso -->
-      <section class="section reveal" style="border-bottom: none;">
-        <h2>Acesso controlado de testes</h2>
-        <p class="lead" style="margin-bottom: 24px;">Esta distribuição exclusiva destina-se somente a testadores convidados pelo desenvolvedor.</p>
-        <p style="margin-bottom: 24px;">O Lumina encontra-se em fase ativa de validação técnica, o que significa que ele poderá receber atualizações de versão frequentes, correções de instalação e alterações nas regras de compatibilidade sem aviso prévio.</p>
+      <section class="section reveal" style="border-bottom:none;">
+        <h2>Documentos para uso e lançamento</h2>
+        <p class="lead" style="margin-bottom:24px;">As políticas públicas do Lumina foram organizadas para explicar privacidade, termos, assinaturas, cancelamento e reembolso de forma adequada ao contexto brasileiro.</p>
         <div class="actions">
-          <a class="button secondary" href="./privacidade/">Política de privacidade</a>
-          <a class="button secondary" href="./termos/">Termos de uso</a>
+          <a class="button secondary" href="./privacidade/">Política de Privacidade</a>
+          <a class="button secondary" href="./termos/">Termos de Uso</a>
+          <a class="button secondary" href="./cancelamento-reembolso/">Cancelamento e Reembolso</a>
         </div>
       </section>
     </main>
@@ -140,7 +165,8 @@
       <span>Lumina Estudos</span>
       <div class="footer-badge-group">
         <a class="footer-badge" href="./privacidade/">Privacidade</a>
-        <a class="footer-badge" href="./termos/">Termos de Uso</a>
+        <a class="footer-badge" href="./termos/">Termos</a>
+        <a class="footer-badge" href="./cancelamento-reembolso/">Cancelamento e Reembolso</a>
       </div>
       <span><a href="mailto:luminaestudos.app@gmail.com">luminaestudos.app@gmail.com</a></span>
     </footer>
@@ -148,36 +174,30 @@
 
   <script>
     async function loadManifest() {
-      // Detecta se o usuário está acessando pelo celular/Android ou simulador mobile
       const isAndroid = /Android/i.test(navigator.userAgent);
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      
+
       const winBtn = document.getElementById("installer-link");
       const androidBtn = document.getElementById("android-link-primary");
       const androidAltBtn = document.getElementById("android-link-secondary");
       const manifestLink = document.getElementById("manifest-link");
-      
       const isMobileAndroid = isAndroid || (isMobile && !/iPhone|iPad|iPod/i.test(navigator.userAgent));
-      
+
       if (isMobileAndroid) {
-        // Se for celular Android, torna o botão do APK primário e o do Windows secundário
         if (winBtn) {
           winBtn.classList.remove("primary");
           winBtn.classList.add("secondary");
           winBtn.textContent = "Baixar para Windows";
         }
-        
         if (androidBtn) androidBtn.style.display = "inline-flex";
         if (androidAltBtn) androidAltBtn.style.display = "none";
         if (manifestLink) manifestLink.style.display = "none";
-        
-        // Modifica textos do hero para destacar Android
+
         const eyebrow = document.getElementById("hero-eyebrow");
-        if (eyebrow) eyebrow.innerHTML = '<span class="status-dot pulsing"></span>Acesso beta para Android';
+        if (eyebrow) eyebrow.innerHTML = '<span class="status-dot pulsing"></span>beta fechado para Android';
         const leadText = document.getElementById("hero-lead");
-        if (leadText) leadText.textContent = "Instale a build oficial do Lumina para dispositivos Android diretamente através do arquivo APK. Suas informações locais permanecem preservadas no banco do aparelho.";
-        
-        // Modifica a aparência do terminal para Android
+        if (leadText) leadText.textContent = "Instale a build beta do Lumina no Android por APK direto. A distribuição continua restrita a amigos e testers convidados.";
+
         const termTitle = document.querySelector(".terminal-title");
         if (termTitle) termTitle.textContent = "Lumina Android Release";
         const termOk = document.querySelector(".terminal-top .ok");
@@ -185,9 +205,8 @@
         const termInst = document.getElementById("terminal-installer-label");
         if (termInst) termInst.textContent = "downloads/android/Lumina.apk";
         const termUpd = document.getElementById("terminal-updates-label");
-        if (termUpd) termUpd.textContent = "Distribuição direta via APK";
-        
-        // Carrega manifesto do Android
+        if (termUpd) termUpd.textContent = "Distribuição beta direta";
+
         try {
           const response = await fetch('downloads/android/manifest.json', { cache: 'no-store' });
           if (!response.ok) return;
@@ -205,11 +224,9 @@
           console.error("Erro ao carregar manifesto do Android: ", error);
         }
       } else {
-        // Se for PC ou iOS, mantém Windows como primário e Android como secundário
         if (androidBtn) androidBtn.style.display = "none";
         if (androidAltBtn) androidAltBtn.style.display = "inline-flex";
-        
-        // Carrega manifesto do Windows
+
         try {
           const response = await fetch('downloads/windows/manifest.json', { cache: 'no-store' });
           if (!response.ok) return;
@@ -232,28 +249,5 @@
     loadManifest();
   </script>
   <script src="./animation.js"></script>
-  <script>
-    /* Lógica Fallback Local: Garante scroll reveal mesmo se o navegador bloquear scripts externos via file:/// */
-    document.addEventListener("DOMContentLoaded", () => {
-      document.documentElement.classList.add("js-enabled");
-      const revealEls = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
-      if (revealEls.length > 0 && "IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            } else {
-              entry.target.classList.remove("visible");
-            }
-          });
-        }, {
-          root: null,
-          rootMargin: "0px 0px 0px 0px",
-          threshold: 0
-        });
-        revealEls.forEach(el => revealObserver.observe(el));
-      }
-    });
-  </script>
 </body>
 </html>

@@ -8,9 +8,12 @@ const files = {
     "index.html",
     "preview/index.html",
     "tutoriais/index.html",
+    "beta/index.html",
+    "teste/index.html",
     "testar/index.html",
     "privacidade/index.html",
     "termos/index.html",
+    "cancelamento-reembolso/index.html",
   ],
 };
 

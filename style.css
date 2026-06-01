@@ -329,6 +329,10 @@ nav .nav-cta:hover {
   pointer-events: none;
 }
 
+.hidden-link {
+  display: none;
+}
+
 /* Badges / Eyebrow */
 .eyebrow, .pill {
   display: inline-flex;
@@ -445,6 +449,44 @@ nav .nav-cta:hover {
   line-height: 1.6;
 }
 
+.pricing-grid {
+  align-items: stretch;
+}
+
+.plan-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plan-card.highlighted {
+  border-color: rgba(167, 139, 250, 0.38);
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.16), rgba(15, 12, 28, 0.62));
+}
+
+.plan-card.strong {
+  border-color: rgba(16, 185, 129, 0.28);
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+}
+
+.plan-card strong {
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.plan-name {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* Passos numerados */
 .steps {
   display: grid;
@@ -519,6 +561,17 @@ nav .nav-cta:hover {
 .terminal:hover {
   border-color: rgba(167, 139, 250, 0.2);
   box-shadow: 0 35px 80px rgba(124, 58, 237, 0.08), 0 30px 70px rgba(0, 0, 0, 0.4);
+}
+
+.product-showcase {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.compact-terminal .terminal-body {
+  padding: 18px;
+  gap: 12px;
 }
 
 .terminal-top {
@@ -901,6 +954,10 @@ nav .nav-cta:hover {
 
 .legal-card li {
   margin-bottom: 10px;
+}
+
+.redirect-card {
+  text-align: center;
 }
 
 /* Footer */
@@ -1449,8 +1506,8 @@ footer a {
   }
 
   nav a {
-    padding: 7px 12px;
-    font-size: 13px;
+    padding: 7px 8px;
+    font-size: 12.5px;
   }
 
   .button {
