@@ -58,6 +58,7 @@ expectIncludes(home, "Planos Free, Plus e Pro", "home must present the launch pl
 expectIncludes(home, "beta fechado", "home must clearly state beta status");
 expectIncludes(home, "Baixar para Windows", "home must keep Windows download CTA");
 expectIncludes(home, "Baixar Android", "home must keep Android download CTA");
+expectIncludes(home, "Microsoft Store", "home must mention Microsoft Store as a planned official channel");
 
 const beta = htmlByPage.get("beta/index.html") ?? "";
 expectIncludes(beta, "Beta fechado", "beta page must be the canonical beta page");
@@ -70,16 +71,19 @@ expectIncludes(privacy, "Lei Geral de Proteção de Dados", "privacy must mentio
 expectIncludes(privacy, "Supabase", "privacy must mention Supabase");
 expectIncludes(privacy, "Google", "privacy must mention Google login/provider");
 expectIncludes(privacy, "Comunidade", "privacy must mention community data");
+expectIncludes(privacy, "Microsoft Store", "privacy must mention Microsoft Store payments/channel");
 
 const terms = htmlByPage.get("termos/index.html") ?? "";
 expectIncludes(terms, "Código de Defesa do Consumidor", "terms must mention Brazilian consumer law");
 expectIncludes(terms, "assinatura", "terms must cover subscriptions");
 expectIncludes(terms, "lojas oficiais", "terms must cover official stores");
+expectIncludes(terms, "Microsoft Store", "terms must cover Microsoft Store");
 
 const cancellation = htmlByPage.get("cancelamento-reembolso/index.html") ?? "";
 expectIncludes(cancellation, "Direito de arrependimento", "cancellation policy must cover withdrawal rights");
 expectIncludes(cancellation, "Google Play", "cancellation policy must cover Google Play");
 expectIncludes(cancellation, "App Store", "cancellation policy must cover App Store");
+expectIncludes(cancellation, "Microsoft Store", "cancellation policy must cover Microsoft Store");
 expectIncludes(cancellation, "reembolso proporcional", "cancellation policy must cover pro-rata refunds");
 
 for (const legacy of ["teste/index.html", "testar/index.html"]) {

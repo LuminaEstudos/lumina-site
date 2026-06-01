@@ -2,6 +2,8 @@
 
 Site oficial, legal, institucional e de download beta do Lumina.
 
+O lançamento planejado inclui distribuição Windows pela Microsoft Store, além dos downloads beta hospedados neste repositório.
+
 ## Paginas
 
 - Inicio e apresentacao do app
