@@ -8,6 +8,29 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Ativa a ocultação de animação somente após o script carregar e rodar com sucesso!
   document.documentElement.classList.add("js-enabled");
+
+  const copyTextToClipboard = async (text) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.setAttribute("readonly", "");
+    textArea.style.position = "fixed";
+    textArea.style.top = "0";
+    textArea.style.left = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+      const copied = document.execCommand("copy");
+      if (!copied) throw new Error("execCommand copy failed");
+    } finally {
+      document.body.removeChild(textArea);
+    }
+  };
   
   /* ------------------------------------------------------------------------
      1. SISTEMA DE REVELAÇÃO SUAVE E BIDIRECIONAL AO ROLAR (SCROLL REVEAL)
@@ -26,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, {
       root: null,
-      rootMargin: "-20px 0px -40px 0px", // Margens leves para suavizar a saída/entrada
-      threshold: 0.05
+      rootMargin: "0px 0px 0px 0px",
+      threshold: 0
     });
     
     revealElements.forEach(element => {
@@ -75,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (promptBody) {
         const textToCopy = promptBody.textContent.trim();
         
-        navigator.clipboard.writeText(textToCopy).then(() => {
+        copyTextToClipboard(textToCopy).then(() => {
           // Feedback visual de cópia
           const originalHTML = button.innerHTML;
           button.classList.add("copied");
@@ -113,9 +136,18 @@ document.addEventListener("DOMContentLoaded", () => {
             if (link.getAttribute("href") === `#${activeId}`) {
               link.classList.add("active");
               
-              // Rolagem horizontal suave no menu mobile
+              // Rolagem horizontal suave no menu mobile, sem deslocar a janela verticalmente.
               if (window.innerWidth <= 960) {
-                link.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+                const nav = link.closest(".tutorial-nav");
+                if (nav) {
+                  const navWidth = nav.offsetWidth;
+                  const linkLeft = link.offsetLeft;
+                  const linkWidth = link.offsetWidth;
+                  nav.scrollTo({
+                    left: linkLeft - (navWidth / 2) + (linkWidth / 2),
+                    behavior: "smooth"
+                  });
+                }
               }
             }
           });
@@ -129,6 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
     tutorialSections.forEach(section => {
       sectionObserver.observe(section);
     });
+  }
+
   /* ------------------------------------------------------------------------
      5. ALTERNADOR DE MOCKUPS DO DASHBOARD (TABS NO PREVIEW)
      ------------------------------------------------------------------------ */
@@ -163,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 30);
         }
       }, 210);
+    });
   });
 
   /* ------------------------------------------------------------------------
