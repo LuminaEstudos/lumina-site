@@ -173,6 +173,7 @@
   <script>
     const SUPABASE_URL = 'https://lvxvesjefsqtwawiwgxs.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_OP7oviFB_J1kxWXgle-ucQ_nQVu97fu';
+    const VALIDATION_TIMEOUT_MS = 20000;
 
     if (!window.supabase) {
       document.getElementById('state-loading').classList.add('auth-hidden');
@@ -186,6 +187,8 @@
       auth: {
         detectSessionInUrl: true,
         flowType: 'pkce',
+        persistSession: true,
+        autoRefreshToken: true,
       },
     });
 
@@ -228,6 +231,17 @@
       return description || 'Não foi possível validar o link de recuperação.';
     }
 
+    function withTimeout(promise, label) {
+      return Promise.race([
+        promise,
+        new Promise((_, reject) => {
+          window.setTimeout(() => {
+            reject(new Error(label + ' demorou demais. Solicite um novo link no app.'));
+          }, VALIDATION_TIMEOUT_MS);
+        }),
+      ]);
+    }
+
     async function establishRecoverySession() {
       const authError = readAuthError();
       if (authError) {
@@ -236,12 +250,32 @@
       }
 
       const search = new URLSearchParams(window.location.search);
+      const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+      const tokenHash = search.get('token_hash');
+      const type = search.get('type') || hash.get('type');
       const code = search.get('code');
 
-      if (code) {
-        const { error } = await supabase.auth.exchangeCodeForSession(code);
+      // Fluxo recomendado: token_hash no link do e-mail (funciona ao abrir no navegador).
+      if (tokenHash && type === 'recovery') {
+        const { error } = await withTimeout(
+          supabase.auth.verifyOtp({ token_hash: tokenHash, type: 'recovery' }),
+          'Validação do link',
+        );
         if (error) {
           showError(error.message);
+          return false;
+        }
+      } else if (code) {
+        // PKCE (?code=...) só funciona no mesmo cliente que pediu o reset (ex.: app).
+        const { error } = await withTimeout(
+          supabase.auth.exchangeCodeForSession(code),
+          'Validação do link',
+        );
+        if (error) {
+          showError(
+            'Este link precisa ser aberto com o formato atualizado do e-mail. ' +
+            'Solicite um novo link de recuperação no app Lumina e use o e-mail mais recente.',
+          );
           return false;
         }
       }
@@ -253,7 +287,10 @@
       }
 
       if (!data.session) {
-        showError('Não foi possível validar o link. Solicite um novo e-mail de recuperação no app.');
+        showError(
+          'Não foi possível validar o link. Solicite um novo e-mail de recuperação no app ' +
+          'e abra o link mais recente em até 1 hora.',
+        );
         return false;
       }
 
