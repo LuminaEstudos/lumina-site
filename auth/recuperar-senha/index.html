@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recuperar senha - Lumina</title>
+  <meta name="description" content="Redefina a senha da sua conta Lumina Estudos.">
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../../assets/app_icon.png" type="image/png">
+  <link rel="stylesheet" href="../../style.css">
+  <script>document.documentElement.classList.add('js-enabled');</script>
+  <style>
+    .auth-shell {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .auth-card {
+      background: var(--surface-strong);
+      border: 1px solid var(--border-hover);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .auth-card h1 {
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      margin-bottom: 10px;
+    }
+
+    .auth-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .auth-field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .auth-field label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .auth-field input {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border-hover);
+      background: rgba(8, 6, 18, 0.55);
+      color: var(--text);
+      padding: 13px 14px;
+      font: inherit;
+    }
+
+    .auth-field input:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .auth-error {
+      color: #fca5a5;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .auth-success {
+      color: #86efac;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .auth-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .auth-hidden {
+      display: none !important;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="../../">
+        <img class="logo-png" src="../../assets/app_icon.png" alt="Lumina Logo">
+        <span class="brand-text">
+          <strong>Lumina</strong>
+          <span>App de estudos</span>
+        </span>
+      </a>
+      <nav>
+        <a href="../../">Inicio</a>
+        <a href="../../beta/">Beta</a>
+        <a href="mailto:suporte@luminaestudos.com.br">Suporte</a>
+      </nav>
+    </header>
+
+    <main class="auth-shell">
+      <section class="auth-card reveal" id="state-loading">
+        <span class="pill">Conta</span>
+        <h1>Validando link...</h1>
+        <p>Aguarde enquanto confirmamos seu acesso para redefinir a senha.</p>
+      </section>
+
+      <section class="auth-card reveal auth-hidden" id="state-form">
+        <span class="pill">Conta</span>
+        <h1>Nova senha</h1>
+        <p>Defina uma nova senha para entrar no Lumina com e-mail e senha.</p>
+        <div class="auth-error auth-hidden" id="form-error"></div>
+        <form id="password-form">
+          <div class="auth-field">
+            <label for="password">Nova senha</label>
+            <input id="password" name="password" type="password" minlength="8" autocomplete="new-password" required>
+          </div>
+          <div class="auth-field">
+            <label for="confirm-password">Confirmar senha</label>
+            <input id="confirm-password" name="confirm-password" type="password" minlength="8" autocomplete="new-password" required>
+          </div>
+          <div class="auth-actions">
+            <button class="button primary" type="submit" id="submit-button">Salvar nova senha</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="auth-card reveal auth-hidden" id="state-success">
+        <span class="pill">Conta</span>
+        <h1>Senha atualizada</h1>
+        <div class="auth-success">Sua senha foi redefinida com sucesso.</div>
+        <p>Volte ao app Lumina e entre com seu e-mail e a nova senha.</p>
+      </section>
+
+      <section class="auth-card reveal auth-hidden" id="state-error">
+        <span class="pill">Conta</span>
+        <h1>Link inválido ou expirado</h1>
+        <div class="auth-error" id="error-message">
+          Este link de recuperação não é mais válido. Solicite um novo link no app Lumina.
+        </div>
+        <p>Use sempre o e-mail mais recente e abra o link em até 1 hora após o envio.</p>
+        <div class="auth-actions">
+          <a class="button secondary" href="../../">Voltar ao site</a>
+          <a class="button primary" href="mailto:suporte@luminaestudos.com.br">Falar com suporte</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://lvxvesjefsqtwawiwgxs.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_OP7oviFB_J1kxWXgle-ucQ_nQVu97fu';
+
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+      auth: {
+        detectSessionInUrl: true,
+        flowType: 'pkce',
+      },
+    });
+
+    const loadingState = document.getElementById('state-loading');
+    const formState = document.getElementById('state-form');
+    const successState = document.getElementById('state-success');
+    const errorState = document.getElementById('state-error');
+    const errorMessage = document.getElementById('error-message');
+    const formError = document.getElementById('form-error');
+    const passwordForm = document.getElementById('password-form');
+    const submitButton = document.getElementById('submit-button');
+
+    function showState(state) {
+      [loadingState, formState, successState, errorState].forEach((element) => {
+        element.classList.add('auth-hidden');
+      });
+      state.classList.remove('auth-hidden');
+    }
+
+    function showError(message) {
+      errorMessage.textContent = message;
+      showState(errorState);
+    }
+
+    function readAuthError() {
+      const search = new URLSearchParams(window.location.search);
+      const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+      const error = search.get('error') || hash.get('error');
+      const errorCode = search.get('error_code') || hash.get('error_code');
+      const description = search.get('error_description') || hash.get('error_description');
+
+      if (!error && !errorCode) {
+        return null;
+      }
+
+      if (errorCode === 'otp_expired') {
+        return 'Este link expirou ou já foi usado. Solicite um novo link no app Lumina.';
+      }
+
+      return description || 'Não foi possível validar o link de recuperação.';
+    }
+
+    async function establishRecoverySession() {
+      const authError = readAuthError();
+      if (authError) {
+        showError(authError);
+        return false;
+      }
+
+      const search = new URLSearchParams(window.location.search);
+      const code = search.get('code');
+
+      if (code) {
+        const { error } = await supabase.auth.exchangeCodeForSession(code);
+        if (error) {
+          showError(error.message);
+          return false;
+        }
+      }
+
+      const { data, error } = await supabase.auth.getSession();
+      if (error) {
+        showError(error.message);
+        return false;
+      }
+
+      if (!data.session) {
+        showError('Não foi possível validar o link. Solicite um novo e-mail de recuperação no app.');
+        return false;
+      }
+
+      return true;
+    }
+
+    passwordForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      formError.classList.add('auth-hidden');
+
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+      if (password.length < 8) {
+        formError.textContent = 'Use pelo menos 8 caracteres na senha.';
+        formError.classList.remove('auth-hidden');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        formError.textContent = 'As senhas não conferem.';
+        formError.classList.remove('auth-hidden');
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Salvando...';
+
+      const { error } = await supabase.auth.updateUser({ password });
+
+      submitButton.disabled = false;
+      submitButton.textContent = 'Salvar nova senha';
+
+      if (error) {
+        formError.textContent = error.message;
+        formError.classList.remove('auth-hidden');
+        return;
+      }
+
+      await supabase.auth.signOut();
+      showState(successState);
+    });
+
+    (async function init() {
+      const ready = await establishRecoverySession();
+      if (ready) {
+        showState(formState);
+      }
+    })();
+  </script>
+</body>
+</html>
