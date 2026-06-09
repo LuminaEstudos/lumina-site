@@ -9,8 +9,13 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../../assets/app_icon.png" type="image/png">
   <link rel="stylesheet" href="../../style.css">
-  <script>document.documentElement.classList.add('js-enabled');</script>
   <style>
+    .auth-shell .auth-card {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+
     .auth-shell {
       max-width: 520px;
       margin: 0 auto;
@@ -116,13 +121,13 @@
     </header>
 
     <main class="auth-shell">
-      <section class="auth-card reveal" id="state-loading">
+      <section class="auth-card" id="state-loading">
         <span class="pill">Conta</span>
         <h1>Validando link...</h1>
         <p>Aguarde enquanto confirmamos seu acesso para redefinir a senha.</p>
       </section>
 
-      <section class="auth-card reveal auth-hidden" id="state-form">
+      <section class="auth-card auth-hidden" id="state-form">
         <span class="pill">Conta</span>
         <h1>Nova senha</h1>
         <p>Defina uma nova senha para entrar no Lumina com e-mail e senha.</p>
@@ -142,14 +147,14 @@
         </form>
       </section>
 
-      <section class="auth-card reveal auth-hidden" id="state-success">
+      <section class="auth-card auth-hidden" id="state-success">
         <span class="pill">Conta</span>
         <h1>Senha atualizada</h1>
         <div class="auth-success">Sua senha foi redefinida com sucesso.</div>
         <p>Volte ao app Lumina e entre com seu e-mail e a nova senha.</p>
       </section>
 
-      <section class="auth-card reveal auth-hidden" id="state-error">
+      <section class="auth-card auth-hidden" id="state-error">
         <span class="pill">Conta</span>
         <h1>Link inválido ou expirado</h1>
         <div class="auth-error" id="error-message">
@@ -168,6 +173,14 @@
   <script>
     const SUPABASE_URL = 'https://lvxvesjefsqtwawiwgxs.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_OP7oviFB_J1kxWXgle-ucQ_nQVu97fu';
+
+    if (!window.supabase) {
+      document.getElementById('state-loading').classList.add('auth-hidden');
+      document.getElementById('error-message').textContent =
+        'Não foi possível carregar os recursos de autenticação. Tente novamente ou solicite um novo link no app.';
+      document.getElementById('state-error').classList.remove('auth-hidden');
+      throw new Error('Supabase JS não carregou');
+    }
 
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
       auth: {
@@ -285,9 +298,17 @@
     });
 
     (async function init() {
-      const ready = await establishRecoverySession();
-      if (ready) {
-        showState(formState);
+      try {
+        const ready = await establishRecoverySession();
+        if (ready) {
+          showState(formState);
+        }
+      } catch (error) {
+        showError(
+          error && error.message
+            ? error.message
+            : 'Erro inesperado ao validar o link. Solicite um novo e-mail no app.',
+        );
       }
     })();
   </script>
