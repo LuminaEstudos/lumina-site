@@ -196,7 +196,6 @@ header {
 
 .brand:hover .logo-svg, .brand:hover .logo-png {
   transform: rotate(5deg) scale(1.06);
-  filter: drop-shadow(0 0 12px rgba(124, 58, 237, 0.45));
 }
 
 .logo-png, .logo-svg {
@@ -204,8 +203,7 @@ header {
   height: 44px;
   border-radius: 12px;
   object-fit: contain;
-  transition: transform 0.3s var(--ease-premium), filter 0.3s var(--ease-premium);
-  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.2);
+  transition: transform 0.3s var(--ease-premium);
 }
 
 .brand-text strong {
