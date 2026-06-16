@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conta Lumina</title>
+  <meta name="description" content="Acesse sua conta Lumina, plano, assinatura e suporte.">
+  <meta name="theme-color" content="#7c3aed">
+  <link rel="icon" href="/assets/app_icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">
+        <img class="logo-png" src="/assets/app_icon.png" alt="Lumina Logo">
+        <span class="brand-text"><strong>Lumina</strong><span>App de estudos</span></span>
+      </a>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/assinatura/">Assinar</a>
+        <a href="mailto:suporte@luminaestudos.com.br">Suporte</a>
+        <a class="nav-account active" href="/conta/" aria-label="Minha conta" title="Minha conta">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="account-surface">
+      <section id="account-loading" class="account-card account-stack">
+        <span class="account-eyebrow">Conta</span>
+        <h1 class="account-title">Verificando sessão...</h1>
+        <p class="account-copy">Aguarde enquanto confirmamos seu acesso.</p>
+      </section>
+
+      <section id="account-dashboard" class="account-layout" hidden>
+        <div class="account-card account-stack">
+          <span class="account-eyebrow">Painel</span>
+          <h1 class="account-title">Sua conta Lumina</h1>
+          <p class="account-copy">Gerencie sua assinatura, veja o plano ativo e acesse os canais de suporte em um só lugar.</p>
+
+          <div class="account-profile-strip">
+            <div class="account-avatar" id="account-avatar" aria-hidden="true">L</div>
+            <div class="account-profile-copy">
+              <span>Conta conectada</span>
+              <strong id="account-email">-</strong>
+            </div>
+          </div>
+
+          <div class="account-status-grid">
+            <div class="account-stat">
+              <span>Plano</span>
+              <strong id="account-plan">-</strong>
+            </div>
+            <div class="account-stat">
+              <span>Status</span>
+              <strong id="account-status">-</strong>
+            </div>
+          </div>
+
+          <div class="account-panel">
+            <span class="account-status-pill" id="account-status-pill">Carregando</span>
+            <h2 id="account-summary-title">Resumo da assinatura</h2>
+            <p id="account-summary-copy">Consultando dados server-side...</p>
+          </div>
+        </div>
+
+        <aside class="account-card account-stack">
+          <span class="account-eyebrow">Ações</span>
+          <div class="account-actions">
+            <a class="button primary" href="/conta/assinatura/">Gerenciar assinatura</a>
+            <a class="button secondary" href="/assinatura/">Assinar ou trocar plano</a>
+            <a class="button secondary" href="mailto:suporte@luminaestudos.com.br">Falar com suporte</a>
+            <button class="button secondary" id="sign-out-button" type="button">Sair</button>
+          </div>
+          <div class="account-panel">
+            <h3>Cancelamento e reembolso</h3>
+            <p>Consulte as regras antes de cancelar ou pedir suporte financeiro.</p>
+            <p><a href="/cancelamento-reembolso/">Ver política</a></p>
+          </div>
+          <p id="account-message" class="account-message" role="status"></p>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/assets/js/site-header.js"></script>
+  <script type="module" src="./account.js"></script>
+</body>
+</html>

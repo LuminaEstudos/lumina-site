@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha assinatura Lumina</title>
+  <meta name="description" content="Gerencie sua assinatura Lumina Plus ou Pro.">
+  <meta name="theme-color" content="#7c3aed">
+  <link rel="icon" href="/assets/app_icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">
+        <img class="logo-png" src="/assets/app_icon.png" alt="Lumina Logo">
+        <span class="brand-text"><strong>Lumina</strong><span>App de estudos</span></span>
+      </a>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/conta/">Conta</a>
+        <a href="/assinatura/">Assinar</a>
+        <a href="mailto:suporte@luminaestudos.com.br">Suporte</a>
+        <a class="nav-account active" href="/conta/" aria-label="Minha conta" title="Minha conta">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="account-surface">
+      <section id="session-panel" class="account-card account-stack">
+        <span class="account-eyebrow">Assinatura</span>
+        <h1 class="account-title">Verificando sessão...</h1>
+        <p class="account-copy">Aguarde enquanto confirmamos seu acesso.</p>
+      </section>
+
+      <section id="account-panel" class="account-layout" hidden>
+        <div class="account-card account-stack">
+          <span class="account-eyebrow">Assinatura</span>
+          <h1 class="account-title">Minha assinatura</h1>
+          <p class="account-copy">Consulte o estado server-side da sua assinatura e cancele a renovação quando quiser.</p>
+
+          <div class="account-status-grid">
+            <div class="account-stat">
+              <span>Plano</span>
+              <strong id="subscription-plan">-</strong>
+            </div>
+            <div class="account-stat">
+              <span>Status</span>
+              <strong id="subscription-status-label">-</strong>
+            </div>
+            <div class="account-stat">
+              <span>Acesso até</span>
+              <strong id="subscription-period">-</strong>
+            </div>
+          </div>
+
+          <div class="account-panel">
+            <span class="account-status-pill" id="subscription-pill">Carregando</span>
+            <h2 id="subscription-title">Resumo</h2>
+            <p id="subscription-copy">Consultando assinatura...</p>
+          </div>
+        </div>
+
+        <aside class="account-card account-stack">
+          <span class="account-eyebrow">Gerenciar</span>
+          <div class="account-actions">
+            <button class="button secondary" id="cancel-button" type="button" hidden>Cancelar renovação</button>
+            <a class="button primary" href="/assinatura/">Assinar ou trocar plano</a>
+            <a class="button secondary" href="/conta/">Voltar para conta</a>
+          </div>
+          <div class="account-panel">
+            <h3>Suporte financeiro</h3>
+            <p>Para reembolso, cobrança ou recibos, fale com suporte.</p>
+            <p><a href="mailto:suporte@luminaestudos.com.br">suporte@luminaestudos.com.br</a></p>
+          </div>
+          <p id="account-message" class="account-message" role="status"></p>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/assets/js/site-header.js"></script>
+  <script type="module" src="./account.js"></script>
+</body>
+</html>

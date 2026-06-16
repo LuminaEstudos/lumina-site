@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assinar Lumina Plus/Pro</title>
+  <meta name="description" content="Assine Lumina Plus ou Pro com pagamento seguro pelo Mercado Pago.">
+  <meta name="theme-color" content="#7c3aed">
+  <link rel="icon" href="/assets/app_icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">
+        <img class="logo-png" src="/assets/app_icon.png" alt="Lumina Logo">
+        <span class="brand-text"><strong>Lumina</strong><span>App de estudos</span></span>
+      </a>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/termos/">Termos</a>
+        <a href="/privacidade/">Privacidade</a>
+        <a href="mailto:suporte@luminaestudos.com.br">Suporte</a>
+        <a class="nav-account" href="/conta/" aria-label="Minha conta" title="Minha conta">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="billing-shell">
+      <section class="billing-grid">
+        <div class="subscription-card account-stack">
+          <span class="account-eyebrow">Assinatura recorrente</span>
+          <h1 class="account-title">Assinar Lumina</h1>
+          <p class="account-copy">Contrate Plus ou Pro com pagamento seguro pelo Mercado Pago. O Lumina libera o acesso apenas depois da confirmação server-side no Supabase.</p>
+          <div class="notice">
+            <strong>Transparência:</strong> antes de autorizar, confira plano, preço, periodicidade, renovação automática, cancelamento e políticas de reembolso/arrependimento.
+          </div>
+        </div>
+
+        <div class="subscription-card account-stack">
+          <section id="auth-panel" class="account-panel account-stack" hidden>
+            <span class="account-eyebrow">Conta necessária</span>
+            <h2>Entre para assinar</h2>
+            <p>Escolha seu plano e entre na sua conta Lumina para continuar no checkout seguro.</p>
+            <a class="button primary" id="login-link" href="/login/?redirect=/assinatura/">Entrar para assinar</a>
+          </section>
+
+          <section id="plans-panel" class="account-stack" hidden>
+            <span class="account-eyebrow">Planos</span>
+            <p>Escolha o plano. A autorização do cartão acontece no ambiente seguro do Mercado Pago.</p>
+            <div class="billing-plans" id="plan-buttons">
+              <button class="billing-plan-button" data-plan="plus_monthly" type="button"><strong>Plus mensal - R$ 19,90</strong><span>20 matérias, 400 aulas, 5.000 questões e backup/sync.</span></button>
+              <button class="billing-plan-button" data-plan="plus_annual" type="button"><strong>Plus anual - R$ 197,90</strong><span>Economia anual e 365 dias de histórico.</span></button>
+              <button class="billing-plan-button" data-plan="pro_monthly" type="button"><strong>Pro mensal - R$ 39,90</strong><span>Mais limites, histórico completo e relatórios avançados.</span></button>
+              <button class="billing-plan-button" data-plan="pro_annual" type="button"><strong>Pro anual - R$ 397,90</strong><span>Melhor opção para uso intenso durante o ano.</span></button>
+            </div>
+          </section>
+
+          <section id="payment-panel" class="checkout-panel" hidden>
+            <span class="account-eyebrow">Pagamento</span>
+            <p id="selected-plan"></p>
+            <div id="cardPaymentBrick_container"></div>
+          </section>
+
+          <p id="billing-message" class="billing-message" role="status"></p>
+          <p class="billing-legal"><a href="/termos/">Termos de uso</a> | <a href="/privacidade/">Política de privacidade</a> | <a href="mailto:suporte@luminaestudos.com.br">Suporte</a></p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/assets/js/site-header.js"></script>
+  <script type="module" src="./billing.js"></script>
+</body>
+</html>

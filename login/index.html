@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar - Lumina</title>
+  <meta name="description" content="Entre na sua conta Lumina para assinar ou gerenciar sua assinatura.">
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/assets/app_icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">
+        <img class="logo-png" src="/assets/app_icon.png" alt="Lumina Logo">
+        <span class="brand-text"><strong>Lumina</strong><span>App de estudos</span></span>
+      </a>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/assinatura/">Assinar</a>
+        <a href="mailto:suporte@luminaestudos.com.br">Suporte</a>
+        <a class="nav-account active" href="/conta/" aria-label="Minha conta" title="Minha conta">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="auth-shell">
+      <section class="auth-layout">
+        <div class="auth-card account-stack">
+          <span class="account-eyebrow">Conta Lumina</span>
+          <h1 class="account-title">Entre com segurança</h1>
+          <p class="account-copy">Use sua conta Lumina para assinar, consultar seu plano e gerenciar a renovação. O pagamento continua separado no ambiente seguro do Mercado Pago.</p>
+          <div class="account-panel">
+            <h3>Depois do login</h3>
+            <p>Você volta automaticamente para a página que estava tentando acessar.</p>
+          </div>
+        </div>
+
+        <div class="auth-card auth-form">
+          <span class="account-eyebrow">Acesso</span>
+          <div class="auth-field">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="auth-field">
+            <label for="password">Senha</label>
+            <input id="password" type="password" autocomplete="current-password">
+          </div>
+
+          <div class="auth-actions">
+            <button class="button primary" id="password-login-button" type="button">Entrar com senha</button>
+            <button class="button secondary" id="magic-link-button" type="button">Receber link mágico</button>
+          </div>
+
+          <p id="login-message" class="login-message" role="status"></p>
+          <p class="auth-note">Se sua conta foi criada por Google ou link mágico, use o botão de link mágico.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/assets/js/site-header.js"></script>
+  <script type="module" src="./login.js"></script>
+</body>
+</html>
