@@ -1,10 +1,10 @@
 {
-    "versionName":  "0.63.2",
+    "versionName":  "0.63.4",
     "buildNumber":  30,
     "apkFileName":  "Lumina.apk",
     "apkUrl":  "https://www.luminaestudos.com.br/downloads/android/Lumina.apk",
-    "sha256":  "def19ddb7f392033e2ab6889017d6501db66fdac9eea7e88d2e89eb9e491abd0",
-    "generatedAt":  "2026-06-25T18:40:20Z",
+    "sha256":  "e36c3b8ab37e96b86178cc082bc35aa7248fae010ab11c639d8608d30e5f6ced",
+    "generatedAt":  "2026-06-30T15:58:45Z",
     "channel":  "beta",
     "platform":  "android",
     "distribution":  "apk",
